@@ -83,6 +83,7 @@ fieldset {
     @include box-sizing(border-box);
     @include font-size(14, $unit--baseline - $unit);
     padding: em($unit, 14) em($unit*2, 14);
+    height: em($unit--baseline + $unit, 14);
     outline: none;
     border: none;
     color: #fff;
@@ -110,11 +111,13 @@ fieldset {
 .button--large {
     @include font-size(16, $unit--baseline - $unit);
     padding: em($unit*2, 16) em($unit*3, 16);
+    height: em($unit--baseline + ($unit*3), 16);
 }
 
 .button--small {
     @include font-size(12, $unit--baseline);
     padding: 0 em($unit*1.5, 12);
+    height: em($unit--baseline, 12);
 }
 
 .form__list {

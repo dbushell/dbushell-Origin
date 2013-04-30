@@ -134,12 +134,6 @@ canvas {
     background: $colour__bg--light;
 }
 
-.block__code {
-    .lt-ie9 & {
-        @include hidden;
-    }
-}
-
 #block-grids {
     .gc p {
         padding: em($unit*2);
