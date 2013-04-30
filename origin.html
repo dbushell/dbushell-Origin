@@ -189,6 +189,25 @@ code[class*="language-"],pre[class*="language-"]{color:black;text-shadow:0 1px w
 
         <hr>
 
+        <h2 class="h2">Switches</h2>
+        <p class="p">If CSS <code>:checked</code> selector is not supported these are normal inline checkboxes.</p>
+
+        <label class="label--checkbox">
+            <input class="switch" type="checkbox"> <span>Option label</span>
+        </label>
+        <br>
+        <label class="label--checkbox">
+            <input class="switch" type="checkbox" checked> <span>Option label</span>
+        </label>
+
+        <pre class="block__code"><code class="language-markup">&lt;label class=&quot;label--checkbox&quot;&gt;
+    &lt;input class=&quot;switch&quot; type=&quot;checkbox&quot; checked&gt; &lt;span&gt;Option label&lt;/span&gt;
+&lt;/label&gt;</code></pre>
+
+
+
+        <hr>
+
         <h2 class="h2">Inline Form</h2>
 
         <form class="form form--inline" id="form-login">
@@ -548,7 +567,7 @@ code[class*="language-"],pre[class*="language-"]{color:black;text-shadow:0 1px w
 
 </main>
 
-<script type="text/javascript" ata-default-language="markup">
+<script type="text/javascript" data-default-language="markup">
 /**
  * Prism: Lightweight, robust, elegant syntax highlighting
  * MIT license http://www.opensource.org/licenses/mit-license.php/

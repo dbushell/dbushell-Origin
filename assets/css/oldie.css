@@ -256,7 +256,7 @@ canvas { -ms-touch-action: double-tap-zoom; }
 
 .label, .form label { display: inline-block; font-size: 0.875em; line-height: 2em; font-weight: bold; }
 
-.label--checkbox { display: inline-block; font-size: 0.875em; line-height: 1.5em; font-weight: normal !important; }
+.label--checkbox { display: inline-block; font-size: 0.875em; line-height: 2em; font-weight: normal !important; }
 .label--checkbox input[type="checkbox"] { float: left; font-size: inherit; margin: 0.5em 0.5em 0 0; }
 .label--checkbox input[type="checkbox"]:focus + span, .label--checkbox input[type="checkbox"]:checked + span { color: #528fcc; }
 
@@ -279,6 +279,13 @@ fieldset legend { font-size: 1.5em; line-height: 1.45833em; margin-bottom: 0.875
 .button--large { font-size: 1em; line-height: 1.3125em; padding: 0.875em 1.3125em; height: 3.0625em; }
 
 .button--small { font-size: 0.75em; line-height: 2.33333em; padding: 0 0.875em; height: 2.33333em; }
+
+.switch:checked, .switch:not(:checked) { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+.switch:checked + span, .switch:not(:checked) + span { position: relative; display: inline-block; }
+.switch:checked + span:before, .switch:not(:checked) + span:before { content: "Off"; position: relative; display: inline-block; font-size: 0.85714em; line-height: 1.75em; top: 0.29167em; width: 4.66667em; height: 1.75em; padding: 0 0.58333em; margin-right: 0.58333em; background: #f2efe6; vertical-align: top; color: #7b7e80; font-weight: bold; text-align: right; text-transform: uppercase; }
+.switch:checked + span:after, .switch:not(:checked) + span:after { content: ""; position: absolute; display: block; top: 0.25em; left: 0; width: 2.5em; height: 1.5em; background: #7b7e80; -webkit-transition: left 50ms ease, background 50ms ease; -moz-transition: left 50ms ease, background 50ms ease; -o-transition: left 50ms ease, background 50ms ease; transition: left 50ms ease, background 50ms ease; }
+.switch:checked + span:before { content: "On"; text-align: left; }
+.switch:checked + span:after { left: 2.5em; background: #528fcc; }
 
 .form__list { *zoom: 1; }
 .form__list:before, .form__list:after { content: ""; display: table; }
