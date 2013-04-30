@@ -1,0 +1,158 @@
+
+html {
+    background: $colour__bg;
+    font-family: $fonts;
+    overflow-y: scroll;
+    min-width: em(320);
+    padding: 0;
+    margin: 0;
+    color: $colour__text;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    // width: auto;
+    height: auto;
+}
+
+button, input, select {
+    font-family: $fonts;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul, ol, li {
+    margin: 0;
+    font-size: em(16);
+    line-height: 1;
+    font-weight: normal;
+}
+
+ul, ol {
+    padding: 0;
+    list-style: none;
+}
+
+// http://msdn.microsoft.com/en-gb/library/ie/jj583807(v=vs.85).aspx
+
+canvas {
+    -ms-touch-action: double-tap-zoom;
+}
+
+// http://dbushell.com/2013/03/19/on-responsive-layout-and-grids/
+// http://dbushell.com/2012/03/27/introducing-shiro/
+
+.gs {
+    @include clearfix;
+    margin-left: em(-$unit--gutter/2);
+    margin-right: em(-$unit--gutter/2);
+}
+
+.gc {
+    width: 100%;
+    float: left;
+    padding: 0 em($unit--gutter/2);
+    margin-bottom: em($unit--baseline);
+    @include box-sizing(border-box);
+
+    .no-boxsizing & {
+        padding: 0;
+    }
+}
+
+.no-boxsizing .gc-body {
+    padding: 0 em($unit--gutter/2);
+}
+
+.gs__block--3c { .gc { width: 33.33333%; } }
+.gs__block--4c { .gc { width: 25%; } }
+.gs__block--5c { .gc { width: 20%; } }
+
+@include respond-max(1000)
+{
+    .gs__block--5c {
+        .gc {
+            width: 33.33333%;
+            &:nth-child(4n) { margin-left: 16.66666%; }
+        }
+    }
+}
+
+@include respond-max(800)
+{
+    .gs__block--4c { .gc { width: 50%; } }
+}
+
+@include respond-max(700)
+{
+    .gs__block--3c { .gc { width: 50%; } }
+    .gs__block--5c { .gc { width: 50%; margin-left: 0 !important; } }
+}
+
+@include respond-max(500)
+{
+    .gs__block--3c,
+    .gs__block--4c,
+    .gs__block--5c { .gc { width: 100%; } }
+}
+
+.block {
+    margin: 0 auto;
+    padding: 0 5%;
+    max-width: em(1080);
+
+    @include respond-max($breakpoint--mobile)
+    {
+        padding: 0 em($unit--gutter);
+    }
+
+    .lt-ie9 & {
+        min-width: em(900);
+        padding: 0 em($unit--gutter);
+    }
+
+    .lt-ie8 {
+        width: em(900);
+    }
+}
+
+// test page only
+
+.block--origin {
+    margin-top: em($unit--baseline*2);
+    margin-bottom: em($unit--baseline*2);
+}
+
+.block--origin .block__title {
+    @include font-size(36, $unit--baseline);
+    padding: em($unit--baseline/2, 36) em($unit--baseline, 36);
+    margin: em($unit--baseline, 36) em(-$unit--baseline, 36);
+    color: $colour__text--brand;
+    background: $colour__bg--light;
+}
+
+.block__code {
+    .lt-ie9 & {
+        @include hidden;
+    }
+}
+
+#block-grids {
+    .gc p {
+        padding: em($unit*2);
+        color: #fff;
+        font-weight: bold;
+        text-align: center;
+        background: $colour__bg--dark;
+    }
+}
+
+#block-tables {
+    .table-responsive {
+        display: block;
+        max-width: em(640);
+    }
+}

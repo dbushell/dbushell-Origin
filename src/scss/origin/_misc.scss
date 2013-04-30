@@ -1,0 +1,41 @@
+
+pre,
+kbd,
+code {
+    color: $colour__text--light;
+    font-family: $fonts--monospace;
+    background: $colour__bg--code;
+}
+
+pre {
+    @include font-size(14, $unit--baseline);
+    padding: em($unit--baseline/2, 14);
+    margin: em($unit--baseline, 14) 0;
+    border: 1px solid $colour__hairline;
+}
+
+kbd,
+code {
+    display: inline-block;
+    font-size: 0.875em;
+    line-height: 1.5;
+    padding: 0 em($unit/2, 14);
+}
+
+pre > code {
+    display: block;
+    font-size: inherit;
+    line-height: inherit;
+    padding: 0;
+}
+
+hr,
+.hr {
+    display: block;
+    clear: both;
+    height: em(2);
+    margin: em($unit--baseline) 0;
+    background: $colour__hairline;
+    outline: none;
+    border: 0;
+}

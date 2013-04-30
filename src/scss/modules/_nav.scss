@@ -1,0 +1,22 @@
+
+#nav {
+    a {
+        display: inline-block;
+        padding: em($unit) em($unit*2);
+        @include font-size(16, $unit--baseline);
+        color: $colour__text--link;
+        font-weight: bold;
+        background-color: $colour__bg--light;
+
+        &:focus,
+        &:hover {
+            color: #fff;
+            background-color: $colour__text--link;
+        }
+    }
+
+}
+
+.nav__title {
+    @include visually-hidden;
+}

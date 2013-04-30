@@ -1,0 +1,21 @@
+
+.media {
+    @include clearfix;
+}
+
+.media__image {
+    float: left;
+    margin-right: em($unit--gutter);
+}
+
+.media__body {
+    overflow: hidden;
+}
+
+.media--rtl {
+    .media__image {
+        float: right;
+        margin-left: em($unit--gutter);
+        margin-right: 0;
+    }
+}
