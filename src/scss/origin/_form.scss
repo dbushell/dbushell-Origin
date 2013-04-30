@@ -7,7 +7,7 @@
 
 .label--checkbox {
     display: inline-block;
-    @include font-size(14, $unit--baseline - $unit);
+    @include font-size(14, $unit--baseline);
     font-weight: normal !important;
 
     input[type="checkbox"] {
@@ -118,6 +118,61 @@ fieldset {
     @include font-size(12, $unit--baseline);
     padding: 0 em($unit*1.5, 12);
     height: em($unit--baseline, 12);
+}
+
+.switch {
+    // scope with both selectors to avoid partial support
+    &:checked ,
+    &:not(:checked) {
+        @include visually-hidden;
+
+        & + span {
+            position: relative;
+            display: inline-block;
+
+            &:before {
+                content: "Off";
+                position: relative;
+                display: inline-block;
+                font-size: em(12, 14);
+                line-height: em($unit*3, 12);
+                top: em($unit/2, 12);
+                width: em($unit--gutter*2, 12);
+                height: em($unit*3, 12);
+                padding: 0 em($unit, 12);
+                margin-right: em($unit, 12);
+                background: $colour__bg--light;
+                vertical-align: top;
+                color: $colour__text--light;
+                font-weight: bold;
+                text-align: right;
+                text-transform: uppercase;
+            }
+
+            &:after {
+                content: "";
+                position: absolute;
+                display: block;
+                top: em($unit/2, 14);
+                left: 0;
+                width: em($unit--gutter+$unit, 14);
+                height: em($unit*3, 14);
+                background: $colour__text--light;
+                @include transition(left 50ms ease, background 50ms ease);
+            }
+        }
+    }
+
+    &:checked + span {
+        &:before {
+            content: "On";
+            text-align: left;
+        }
+        &:after {
+            left: em($unit--gutter+$unit, 14);
+            background: $colour__text--link;
+        }
+    }
 }
 
 .form__list {
