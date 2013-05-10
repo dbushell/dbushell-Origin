@@ -157,10 +157,27 @@ module.exports = function(grunt)
          */
         var getCachedFile = function(ref, cache)
         {
-            var ret = null;
+            // assume index in directory was referenced
+            if (!/\.html$/.test(ref)) {
+                ref = ref + '/index.html';
+            }
+            // find all matching partials
+            var ret = null, matches = [];
             cache.forEach(function(item) {
                 if (ref === item.name || ref === item.path) {
-                    ret = item;
+                    matches.push(item);
+                }
+            });
+            if (!matches.length) {
+                return null;
+            }
+            // find match highest up in the URL hierarchy
+            var depth, priority = 99;
+            matches.forEach(function(m) {
+                depth = (m.path.match(/\//g)||[]).length;
+                if (depth < priority) {
+                    priority = depth;
+                    ret = m;
                 }
             });
             return ret;
