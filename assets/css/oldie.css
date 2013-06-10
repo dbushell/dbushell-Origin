@@ -168,8 +168,8 @@ canvas { -ms-touch-action: double-tap-zoom; }
 
 ::selection { color: #fff; background: #528fcc; }
 
-.link, .p a, .prose p a, .ul a, .prose ul a, .prose ol a, .ol a, .blockquote a, .prose blockquote a, .prose a { color: #528fcc; text-decoration: none; border-bottom: 1px solid #a1c2e3; }
-.link:focus, .p a:focus, .prose p a:focus, .ul a:focus, .prose ul a:focus, .prose ol a:focus, .ol a:focus, .blockquote a:focus, .prose blockquote a:focus, .prose a:focus, .link:hover, .p a:hover, .prose p a:hover, .ul a:hover, .prose ul a:hover, .prose ol a:hover, .ol a:hover, .blockquote a:hover, .prose blockquote a:hover, .prose a:hover { color: #2a5c8e; border-bottom: 1px solid #528fcc; }
+.link, .p a, .ul a, .ol a, .blockquote a, .prose a { color: #528fcc; text-decoration: none; border-bottom: 1px solid #a1c2e3; }
+.link:focus, .p a:focus, .ul a:focus, .ol a:focus, .blockquote a:focus, .prose a:focus, .link:hover, .p a:hover, .ul a:hover, .ol a:hover, .blockquote a:hover, .prose a:hover { color: #2a5c8e; border-bottom: 1px solid #528fcc; }
 
 .h1, .prose h1 { font-size: 2.25em; line-height: 1.36111em; margin-bottom: 0.19444em; }
 
