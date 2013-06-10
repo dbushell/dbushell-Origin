@@ -1,0 +1,36 @@
+
+<footer id="footer" role="contentinfo">
+    <div class="block">
+        <div class="prose">
+            <p><small>Copyright © David Bushell | <a href="http://twitter.com/dbushell/" target="_blank">@dbushell</a> | <a href="http://dbushell.com/" target="_blank">http://dbushell.com/</a></small></p>
+        </div>
+    </div>
+</div>
+<!--
+<script type="text/javsacript" src="<!-- @asset js/vendor/jquery-1.10.1.min.js -->"></script>
+<script type="text/javsacript" src="<!-- @asset js/main.min.js -->"></script>
+ -->
+<script type="text/javascript">
+
+if (window.Modernizr !== undefined)
+{
+    Modernizr.load([
+        {
+            load: [
+                '<!-- @asset js/vendor/jquery-1.10.1.min.js -->',
+                '<!-- @asset js/main.min.js -->'
+            ],
+            complete: function()
+            {
+                $(document).ready(function()
+                {
+                    window.App.init();
+                    $(document.documentElement).addClass('js-ready');
+                });
+            }
+        }
+    ]);
+}
+</script>
+</body>
+</html>

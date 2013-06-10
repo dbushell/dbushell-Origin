@@ -1,0 +1,34 @@
+
+        <div class="prose">
+            <h2 class="block__title">Responsive Grids</h2>
+            <p>Grid elements should be independent of other markup. This avoids style confict and makes responsive breakpoints easier to manage. It also allows a JavaScript polyfill for browsers that don’t support <code>box-sizing</code>. See my article <a href="http://dbushell.com/2013/03/19/on-responsive-layout-and-grids/" target="_blank"><strong>On Responsive Layout and Grids</strong></a>.</p>
+            <p>Below is just an example of layout in action:</p>
+        </div>
+
+        <div class="gs gs__block--3c">
+            <div class="gc"><p>1 of 3</p></div>
+            <div class="gc"><p>2 of 3</p></div>
+            <div class="gc"><p>3 of 3</p></div>
+        </div>
+
+        <div class="gs gs__block--4c">
+            <div class="gc"><p>1 of 4</p></div>
+            <div class="gc"><p>2 of 4</p></div>
+            <div class="gc"><p>3 of 4</p></div>
+            <div class="gc"><p>4 of 4</p></div>
+        </div>
+
+        <div class="gs gs__block--5c">
+            <div class="gc"><p>1 of 5</p></div>
+            <div class="gc"><p>2 of 5</p></div>
+            <div class="gc"><p>3 of 5</p></div>
+            <div class="gc"><p>4 of 5</p></div>
+            <div class="gc"><p>5 of 5</p></div>
+        </div>
+
+        <pre class="block__code"><code class="language-markup">&lt;div class=&quot;gs&quot;&gt;
+    &lt;div class=&quot;gc&quot;&gt;&lt;p&gt;Grid unit 1 of 2&lt;/p&gt;&lt;/div&gt;
+    &lt;div class=&quot;gc&quot;&gt;&lt;p&gt;Grid unit 2 of 2&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+        <p class="p">Columns are sized with percentage widths. This is content and design specific and not pre-defined with classes.</p>

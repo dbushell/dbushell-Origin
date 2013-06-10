@@ -1,0 +1,8 @@
+
+#header {
+    margin: em($unit--baseline) 0;
+
+    .block__title {
+        @include visually-hidden;
+    }
+}

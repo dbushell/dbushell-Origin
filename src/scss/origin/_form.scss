@@ -1,0 +1,232 @@
+
+.label {
+    display: inline-block;
+    @include font-size(14, $unit--baseline);
+    font-weight: bold;
+}
+
+.label--checkbox {
+    display: inline-block;
+    @include font-size(14, $unit--baseline);
+    font-weight: normal !important;
+
+    input[type="checkbox"] {
+        float: left;
+        font-size: inherit;
+        margin: 0.5em 0.5em 0 0;
+    }
+
+    input[type="checkbox"]:focus + span,
+    input[type="checkbox"]:checked + span {
+        color: $colour__text--link;
+    }
+}
+
+.field {
+    display: block;
+    clear: both;
+    @include appearance(none);
+    @include box-sizing(border-box);
+    @include font-size(14, $unit--baseline - $unit);
+    width: 100%;
+    height: em($unit--baseline + $unit, 14);
+    padding: em($unit, 14);
+    outline: none;
+    color: $colour__text--light;
+    border: 1px solid $colour__hairline--dark;
+    background: #fff;
+
+    &:focus {
+        color: $colour__text--focus;
+        border-color: $colour__text--link;
+    }
+
+    .lt-ie8 &,
+    .no-boxsizing & {
+        padding: 0;
+        line-height: em($unit--baseline + $unit, 14);
+        text-indent: em($unit, 14);
+    }
+
+    input[type="file"] {
+        width: 100%;
+    }
+}
+
+textarea.field {
+    height: auto;
+    min-height: em(($unit--baseline*3) + $unit);
+}
+
+fieldset {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    outline: none;
+
+    legend {
+        @include font-size(24, $unit*5);
+        margin-bottom: em($unit*2);
+        width: 100%;
+        padding: 0;
+        color: $colour__text--light;
+        font-weight: normal;
+        border-bottom: 1px solid $colour__hairline;
+    }
+}
+
+.button {
+    position: relative;
+    display: inline-block;
+    *display: block;
+    @include appearance(none);
+    @include box-sizing(border-box);
+    @include font-size(14, $unit--baseline - $unit);
+    padding: em($unit, 14) em($unit*2, 14);
+    height: em($unit--baseline + $unit, 14);
+    outline: none;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    vertical-align: middle;
+    background-color: $colour__text--link;
+
+    &:focus,
+    &:hover {
+        background-color: $colour__text--link--hover;
+    }
+}
+
+.button--link {
+    color: $colour__text--link;
+    text-decoration: underline;
+    background: transparent;
+
+    &:focus, &:hover {
+        color: $colour__text--link--hover;
+        background: $colour__bg--light;
+    }
+}
+
+.button--large {
+    @include font-size(16, $unit--baseline - $unit);
+    padding: em($unit*2, 16) em($unit*3, 16);
+    height: em($unit--baseline + ($unit*3), 16);
+}
+
+.button--small {
+    @include font-size(12, $unit--baseline);
+    padding: 0 em($unit*1.5, 12);
+    height: em($unit--baseline, 12);
+}
+
+.switch {
+    // scope with both selectors to avoid partial support
+    &:checked ,
+    &:not(:checked) {
+        @include visually-hidden;
+
+        & + span {
+            position: relative;
+            display: inline-block;
+
+            &:before {
+                content: "Off";
+                position: relative;
+                display: inline-block;
+                font-size: em(12, 14);
+                line-height: em($unit*3, 12);
+                top: em($unit/2, 12);
+                width: em($unit--gutter*2, 12);
+                height: em($unit*3, 12);
+                padding: 0 em($unit, 12);
+                margin-right: em($unit, 12);
+                background: $colour__bg--light;
+                vertical-align: top;
+                color: $colour__text--light;
+                font-weight: bold;
+                text-align: right;
+                text-transform: uppercase;
+            }
+
+            &:after {
+                content: "";
+                position: absolute;
+                display: block;
+                top: em($unit/2, 14);
+                left: 0;
+                width: em($unit--gutter+$unit, 14);
+                height: em($unit*3, 14);
+                background: $colour__text--light;
+                @include transition(left 50ms ease, background 50ms ease);
+            }
+        }
+    }
+
+    &:checked + span {
+        &:before {
+            content: "On";
+            text-align: left;
+        }
+        &:after {
+            left: em($unit--gutter+$unit, 14);
+            background: $colour__text--link;
+        }
+    }
+}
+
+.form__list {
+    @include clearfix;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.form__item {
+    margin-bottom: em($unit);
+}
+
+.form {
+    margin-bottom: em($unit--baseline);
+
+    label { @extend .label; }
+}
+
+.form--inline {
+
+    .form__item {
+        display: inline-block;
+        margin-right: em($unit--gutter/2);
+        vertical-align: bottom;
+    }
+}
+
+.form--single {
+
+    .form__list {
+        display: table;
+        width: 100%;
+    }
+
+    .form__item {
+        display: table-cell;
+        margin: 0;
+        width: 100%;
+        height: em($unit*5);
+        vertical-align: top;
+
+        &:last-child {
+            width: auto;
+        }
+    }
+
+    label {
+        @include visually-hidden;
+    }
+
+    .button {
+        float: right;
+        margin-left: em($unit--gutter/2, 14);
+    }
+}

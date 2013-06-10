@@ -1,0 +1,152 @@
+
+@function em($px, $base: 16) {
+    @return ($px / $base) + em;
+}
+
+// Units for consistent spacing, vertical rhythm, and a typographic baseline
+
+$unit            : 7;
+$unit--gutter    : $unit * 4;
+$unit--baseline  : $unit * 4;
+
+// Breakpoints used throughout the website
+
+$breakpoint--mobile: 640;
+
+// Colours with more abstract semantic names
+
+$colour__text               : #494b4c;
+$colour__text--light        : lighten($colour__text, 20);
+$colour__text--dark         : darken($colour__text, 20);
+$colour__text--focus        : $colour__text;
+$colour__text--brand        : #528fcc;
+$colour__text--link         : #528fcc;
+$colour__text--link--hover  : darken($colour__text--link, 20);
+$colour__text--error        : #e54545;
+
+$colour__hairline           : lighten(#b3b0aa, 15);
+$colour__hairline--light    : lighten($colour__hairline, 15);
+$colour__hairline--dark     : darken($colour__hairline, 15);
+
+$colour__bg                 : #fff;
+$colour__bg--light          : #f2efe6;
+$colour__bg--dark           : desaturate(darken($colour__bg--light, 20), 20%);
+$colour__bg--reversed       : #494b4d;
+$colour__bg--code           : #f2efe6;
+$colour__bg--highlight      : #fff699;
+
+// Font usage for normal, display, script, and monospace stacks
+
+$fonts             : "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$fonts--display    : $fonts;
+$fonts--script     : Georga, serif;
+$fonts--monospace  : Monaco, Courier, monospace;
+
+
+// https://github.com/jakearchibald/sass-ie/
+
+$fix-media-queries: false !default;
+
+@mixin respond-min($width) {
+    @if ($fix-media-queries) {
+        @if ($fix-media-queries >= $width) {
+            @content;
+        }
+    }
+    @else {
+        @media screen and (min-width: em($width)) {
+            @content;
+        }
+    }
+}
+
+@mixin respond-min-max($w1, $w2)
+{
+    @if ($fix-media-queries) {
+        // nothing?
+    }
+    @else {
+        @media screen and (min-width: em($w1)) and (max-width: em($w2)) {
+            @content;
+        }
+    }
+}
+
+@mixin respond-max($width) {
+    @if ($fix-media-queries) {
+        @if ($fix-media-queries <= $width) {
+            @content;
+        }
+    }
+    @else {
+        @media screen and (max-width: em($width)) {
+            @content;
+        }
+    }
+}
+
+$old-ie: false !default;
+
+@mixin old-ie {
+    @if $old-ie {
+        @content;
+    }
+}
+
+// old and busted
+// @mixin font-size($s1, $s2) {
+//     font-size: em($s1);
+//     line-height: em($s2, $s1);
+// }
+
+// new hotness from @inuitcss
+@mixin font-size($font-size, $line-height: true) {
+    font-size: em($font-size);
+    @if $line-height == true {
+        line-height: ceil($font-size / $unit--baseline) * ($unit--baseline / $font-size) + em;
+    }
+    @else {
+        line-height: em($line-height, $font-size);
+    }
+}
+
+@mixin no-tap-highlight {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+@mixin clearfix {
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+    *zoom: 1;
+}
+
+// Hide from both screenreaders and browsers: h5bp.com/u
+@mixin hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+// Hide only visually, but have it available for screenreaders: h5bp.com/v
+@mixin visually-hidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+@mixin image-replacement {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-indent: 150%;
+}

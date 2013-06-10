@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+/*!
+ *
+ *  Copyright (c) David Bushell | @dbushell | http://dbushell.com/
+ *
+ */
+
+@import "compass/css3";
+@import "normalize";
+
+@import "origin/origin";
+@import "origin/base";
+@import "origin/typography";
+
+body {
+    color: $colour__text;
+    font-size: 16px;
+    line-height: 1;
+    font-family: $fonts;
+    padding: em($unit * 2);
+    background: $colour__bg;
+    @include prose-content;
+}

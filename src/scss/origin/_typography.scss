@@ -1,0 +1,171 @@
+
+::selection {
+    color: #fff;
+    background: $colour__text--link;
+}
+
+.link {
+    color: $colour__text--link;
+    text-decoration: none;
+    border-bottom: 1px solid lighten($colour__text--link, 20);
+
+    &:focus, &:hover {
+        color: $colour__text--link--hover;
+        border-bottom: 1px solid lighten($colour__text--link--hover, 20);
+    }
+}
+
+.h1 { @include font-size(36, $unit * 7); margin-bottom: em($unit, 36); }
+.h2 { @include font-size(30, $unit * 6); margin-bottom: em($unit, 30); }
+.h3 { @include font-size(24, $unit * 4); margin-bottom: em($unit, 24); }
+.h4 { @include font-size(20, $unit * 4); margin-bottom: em($unit, 20); }
+.h5 { @include font-size(16, $unit * 3); margin-bottom: em($unit, 16); }
+.h6 { @include font-size(14, $unit * 3); margin-bottom: em($unit, 14); }
+
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    color: $colour__text--dark;
+    font-family: $fonts--display;
+    font-weight: bold;
+}
+
+.h1 small, .h2 small, .h3 small {
+    font-size: 80%;
+    font-weight: normal;
+    color: $colour__text--light;
+}
+
+.p {
+    @include font-size(16);
+    margin-bottom: em($unit--baseline, 16);
+    color: $colour__text;
+
+    &:last-child { margin-bottom: 0; }
+
+    a { @extend .link; }
+}
+
+.p--no-margin {
+    margin-bottom: 0 !important;
+}
+
+.p--large {
+    @include font-size(20, $unit--baseline + $unit);
+}
+
+.p--small {
+    @include font-size(14);
+}
+
+.ul, .ol {
+    margin-bottom: em($unit--baseline);
+    list-style: disc outside;
+
+    li {
+        @include font-size(16);
+        margin-bottom: em($unit, 16);
+        color: $colour__text;
+    }
+
+    .ul, .ol {
+        margin-left: em($unit--gutter);
+        margin-top: em($unit, 16);
+    }
+
+    a { @extend .link; }
+
+    &:last-child { margin-bottom: 0; }
+}
+
+.ol {
+    list-style: decimal outside;
+}
+
+.blockquote {
+    margin: em($unit--baseline) 0;
+    padding: 0 em($unit--baseline);
+    border-left: em($unit) solid $colour__bg--light;
+
+    p {
+        @include font-size(18, $unit--baseline);
+        margin-bottom: em($unit, 18);
+        color: $colour__text--light;
+        font-family: $fonts--script;
+    }
+
+    cite {
+        @extend .p--small;
+        color: $colour__text--light;
+        font-style: normal;
+    }
+
+    a { @extend .link; }
+}
+
+.abbr {
+    border-bottom: 1px dotted lighten($colour__text, 40);
+}
+
+.mark {
+    display: inline-block;
+    line-height: 1.5;
+    padding: 0 0.3em;
+    color: $colour__text--dark;
+    background: $colour__bg--highlight;
+}
+
+@mixin prose-content {
+
+    a { @extend .link; }
+
+    h1 { @extend .h1; }
+    h2 { @extend .h2; }
+    h3 { @extend .h3; }
+    h4 { @extend .h4; }
+    h5 { @extend .h5; }
+    h6 { @extend .h6; }
+
+    p { @extend .p; }
+
+    .p--large { @extend .p--large; }
+    .p--small { @extend .p--small; }
+
+    ul, ol { @extend .ul; }
+
+    ol { @extend .ol; }
+
+    q {
+        font-style: italic;
+        &:before { content: "“"; }
+        &:after { content: "”"; }
+    }
+
+    abbr {
+        @extend .abbr;
+    }
+
+    mark {
+        @extend .mark;
+    }
+
+    small {
+        @extend .p--small;
+        color: $colour__text--light;
+    }
+
+    blockquote {
+        @extend .blockquote;
+    }
+
+    & > img,
+    & > table,
+    & > embed,
+    & > iframe,
+    & > object {
+        margin: em($unit--baseline) 0;
+    }
+}
+
+.prose {
+    @include prose-content;
+    margin-bottom: em($unit--baseline);
+}
