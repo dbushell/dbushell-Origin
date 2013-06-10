@@ -1,46 +1,50 @@
 var fs = require("fs");
 
-module.exports = function(grunt)
+// var inputFile = phantom.args[0],
+//     outputFile = phantom.args[1];
+
+var svgdatauri = "data:image/svg+xml;base64,",
+    complete = 0,
+    files = phantom.args[0],
+    page = require("webpage").create();
+
+var onComplete = function()
 {
-    grunt.registerMultiTask('rasterize', 'Convert SVG to PNG.', function()
+    if (++complete >= files.length)
     {
-
-        grunt.log.subhead('Rasterizing SVG...');
-
-        var files = grunt.file.expand(this.data.files);
-
-        //grunt.util.async.forEach(files, function(file, nextFile)
-        files.forEach(function(file)
-        {
-            if (typeof file !== 'string') {
-                return;
-            }
-
-            var inputFile = file,
-                outputFile = inputFile.replace(/\.svg$/i, ".png");
-
-            grunt.log.writeln( inputFile + " > " + outputFile);
-
-            grunt.util.spawn(
-            {
-                cmd: 'phantomjs',
-                args: [
-                        'tasks/lib/svg2png.js',
-                        inputFile,
-                        outputFile
-                    ]
-                },
-                function(error, result, code)
-                {
-                    grunt.log.writeIn('test');
-                    grunt.log.error(error + ": " + result + ": " + code);
-                }
-            );
-
-        });
-
-        grunt.log.ok("svg2png complete.");
-
-    });
-
+        phantom.exit(false);
+        process.exit(0);
+    } else {
+        next();
+    }
 };
+
+var next = function()
+{
+    var inputFile  = files[complete],
+        outputFile = inputFile.replace(/\.svg$/i, ".png");
+
+    var svgdata = fs.read(inputFile) || "";
+
+    // get svg element's dimensions so we can set the viewport dims later
+    var frag = window.document.createElement("div");
+    frag.innerHTML = svgdata;
+    var svg = frag.querySelector("svg");
+    var width = svg.getAttribute("width");
+    var height = svg.getAttribute("height");
+
+    // get base64 of svg file
+    fs.write(inputFile.replace(/\.svg$/i, ".txt"), svgdatauri + btoa(svgdata));
+
+    // set page viewport size to svg dimensions
+    page.viewportSize = {  width: parseFloat(width), height: parseFloat(height) };
+
+    // open svg file in webkit to make a png
+    page.open(inputFile, function(status)
+    {
+        page.render(outputFile);
+        onComplete();
+    });
+};
+
+

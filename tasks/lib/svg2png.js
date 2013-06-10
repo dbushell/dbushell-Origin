@@ -5,7 +5,6 @@ var inputFile = phantom.args[0],
 
 var page = require("webpage").create();
 
-
 var svgdata = fs.read(inputFile) || "";
 
 var svgdatauri = "data:image/svg+xml;base64,";
@@ -43,4 +42,6 @@ page.open(inputFile, function(status)
 {
     page.render(outputFile);
     phantom.exit(false);
+    process.exit(0);
 });
+
