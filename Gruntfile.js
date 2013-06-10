@@ -139,7 +139,7 @@ module.exports = function(grunt)
         imageoptim: {
             prod: {
                 files: [
-                    { expand: true, cwd: 'build/', src: ['assets/img/**/*'] }
+                    { expand: true, cwd: 'build/', src: ['assets/img/**/*'], filter: 'isDirectory' }
                 ],
                 options: {
                     quitAfter: true
