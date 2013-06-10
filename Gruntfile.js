@@ -5,6 +5,7 @@ module.exports = function(grunt)
 
     // npm module tasks
     grunt.loadNpmTasks('svgo-grunt');
+    grunt.loadNpmTasks('grunt-imageoptim');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -32,7 +33,10 @@ module.exports = function(grunt)
         'svgo:prod',
 
         // rasterize SVG in ./build/assets/img/
-        'rasterize:prod'
+        'rasterize:prod',
+
+        // optimise images in ./build/assets/img/
+        'imageoptim:prod'
 
     ]);
 
@@ -129,6 +133,17 @@ module.exports = function(grunt)
                     { expand: true, cwd: 'src/', src: ['img/**/*'], dest: 'build/assets/' },
                     { expand: true, cwd: 'src/', src: ['js/**/*'], dest: 'build/assets/' }
                 ]
+            }
+        },
+
+        imageoptim: {
+            prod: {
+                files: [
+                    { expand: true, cwd: 'src/', src: ['img/**/*'], dest: 'build/assets/' }
+                ],
+                options: {
+                    quitAfter: true
+                }
             }
         }
 
