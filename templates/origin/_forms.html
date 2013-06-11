@@ -61,6 +61,30 @@
 
         <hr>
 
+        <h2 class="h2">Aligned Form</h2>
+        <form class="form form--aligned" id="form-signup">
+            <fieldset>
+                <ul class="form__list">
+                    <li class="form__item">
+                        <label for="form-signup__email">Email Address</label>
+                        <input type="email" class="field" id="form-signup__email" placeholder="me@example.com…">
+                    </li>
+                    <li class="form__item">
+                        <label for="form-signup__password">Password</label>
+                        <input type="password" class="field" id="form-signup__password">
+                    </li>
+                    <li class="form__item">
+                        <label class="label--checkbox" for="form-signup__remember">
+                            <input type="checkbox" id="form-signup__remember"> <span>Remember me</span>
+                        </label>
+                    </li>
+                <li class="form__item">
+                    <input type="submit" class="button button--large" value="Login">
+                </li>
+                </ul>
+            </fieldset>
+        </form>
+
         <h2 class="h2">Inline Form</h2>
 
         <form class="form form--inline" id="form-login">

@@ -202,6 +202,22 @@ fieldset {
     }
 }
 
+.form--aligned {
+    .form__item {
+        position: relative;
+        padding-left: em(140 + $unit--gutter);
+
+        & > label:not(.label--checkbox) {
+            position: absolute;
+            top: 0;
+            left: 0;
+            text-align: right;
+            width: em(140, 14);
+            margin-top: em($unit/2);
+        }
+    }
+}
+
 .form--single {
 
     .form__list {
