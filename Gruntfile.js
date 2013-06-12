@@ -41,6 +41,8 @@ module.exports = function(grunt)
 
     ]);
 
+    grunt.registerTask('server', [/*'default',*/ 'webserver']);
+
     grunt.initConfig({
 
         pkg: '<json:package.json>',
