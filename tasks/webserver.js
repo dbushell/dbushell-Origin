@@ -4,8 +4,7 @@
  *
  */
 
-var connect = require('connect'),
-    zlib = require('zlib');
+var connect = require('connect');
 
 module.exports = function(grunt)
 {
