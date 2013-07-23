@@ -20,6 +20,10 @@
     input[type="checkbox"]:checked + span {
         color: $colour__text--link;
     }
+
+    input[checked="checked"] + span {
+        color: $colour__text--link;
+    }
 }
 
 .field {
