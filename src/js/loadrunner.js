@@ -19,9 +19,9 @@
     html5.shivDocument(doc);
 
     // remove JavaScript support in Opera Mini
-    if (ua.indexOf('Opera Mini') >= 0 && Object.prototype.toString.call(w.operamini) === "[object OperaMini]") {
+    if (ua.indexOf('Opera Mini') >= 0 && Object.prototype.toString.call(win.operamini) === "[object OperaMini]") {
         de.className = (' ' + de.className + ' ').replace(' js ', ' no-js ').replace(/^\s+|\s+$/g,'');
-        w.Modernizr = undefined;
+        win.Modernizr = undefined;
     }
 
     // fix Windows Phone 8 viewport bug
