@@ -109,7 +109,7 @@ module.exports = function(grunt)
                     {
                         expand: true,
                         cwd: 'src/',
-                        src: ['js/**/*.js'],
+                        src: ['js/**/*.js', "!js/**/*.min.js"],
                         dest: 'build/assets/',
                         ext: '.min.js'
                     }
