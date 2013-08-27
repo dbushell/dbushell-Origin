@@ -21,7 +21,9 @@ img {
 }
 
 button, input, select {
-    font-family: $fonts;
+    font-family: $fonts--ui;
+    // https://github.com/twbs/bootstrap/issues/8702#issuecomment-21692968
+    background-image: none !important;
 }
 
 h1, h2, h3, h4, h5, h6, p, ul, ol, li {
