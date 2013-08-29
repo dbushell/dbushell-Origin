@@ -18,7 +18,7 @@
     {
         "grunt"                   : ">=0.4.x",
         "connect"                 : ">=2.7.x",
-        "svgo-grunt"              : ">=0.0.3",
+        "grunt-svgmin"            : ">=0.2.x",
         "grunt-svg2png"           : ">=0.1.x",
         "grunt-imageoptim"        : ">=1.x.x",
         "grunt-contrib-copy"      : ">=0.4.x",
