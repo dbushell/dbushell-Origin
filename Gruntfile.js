@@ -145,7 +145,7 @@ module.exports = function(grunt)
 
         imageoptim: {
             prod: {
-                files: ['build/assets/img'],
+                src: ['build/assets/img'],
                 options: {
                     quitAfter: true
                 }
