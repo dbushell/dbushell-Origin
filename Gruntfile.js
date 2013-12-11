@@ -121,7 +121,12 @@ module.exports = function(grunt)
             prod: {
                 files: [
                     { expand: true, cwd: 'src/', src: ['img/**/*.svg'], dest: 'build/assets/' }
-                ]
+                ],
+                options: {
+                    plugins: [{
+                        removeViewBox: false
+                    }]
+                }
             }
         },
 
