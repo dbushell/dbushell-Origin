@@ -1,15 +1,18 @@
 
 .label {
     display: inline-block;
+    vertical-align: middle;
     @include font-size(14, $unit--baseline);
     font-weight: bold;
 }
 
 .label--checkbox {
     display: inline-block;
+    vertical-align: middle;
     @include font-size(14, $unit--baseline);
     font-weight: normal !important;
 
+    input[type="radio"],
     input[type="checkbox"] {
         float: left;
         font-size: inherit;
@@ -198,11 +201,13 @@ fieldset {
 }
 
 .form--inline {
+    margin-bottom: em($unit--baseline/2);
 
     .form__item {
         display: inline-block;
-        margin-right: em($unit--gutter/2);
         vertical-align: bottom;
+        margin-right: em($unit--gutter/2);
+        margin-bottom: em($unit--baseline/2);
     }
 }
 
