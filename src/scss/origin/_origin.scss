@@ -112,6 +112,13 @@ $old-ie: false !default;
 
 @mixin no-tap-highlight {
     -webkit-tap-highlight-color: rgba(0,0,0,0);
+    outline: none;
+}
+
+@mixin text-truncate {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 @mixin clearfix {
