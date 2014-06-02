@@ -12,9 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
 
-    <title>Website</title>
-
-    <script src="assets/js/loadrunner.js"></script>
+    <title>index.html</title>
 
     <!--[if (gt IE 8) | (IEMobile)]><!-->
     <link rel="stylesheet" href="assets/css/style.css">
@@ -23,7 +21,9 @@
     <link rel="stylesheet" href="assets/css/oldie.css">
     <![endif]-->
 
-    <link rel="shortcut icon" type="image/png" href="assets/img/favicon.ico">
+    <script src="assets/js/loadrunner.js"></script>
+
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
     <!--
     <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
@@ -36,14 +36,14 @@
 </head>
 <body>
 
-<header id="header" role="header">
+<header id="header" role="banner">
     <div class="block">
         <h1 class="block__title">Origin</h1>
 
     <nav id="nav" role="navigation">
         <h2 class="nav__title">Site navigation</h2>
         <a href="index.html">Home</a>
-        <a href="origin.html">Origin (alpha)</a>
+        <a href="origin/index.html">Origin (alpha)</a>
     </nav>
 
     </div>
@@ -55,7 +55,7 @@
     <div class="block block--origin">
         <div class="prose">
             <h1 class="block__title">Hello, world!</h1>
-            <p class="p--large"><strong>Welcome to Origin, my starting point for front-end development.</strong> Origin is one part automated build tasks and one part <a href="origin.html">baseline style guide</a> for <abbr title="HyperText Markup Language">HTML</abbr>, <abbr title="Cascading Style Sheets">CSS</abbr>, and JavaScript.</p>
+            <p class="p--large"><strong>Welcome to Origin, my starting point for front-end development.</strong> Origin is one part automated build tasks and one part <a href="origin/index.html">baseline style guide</a> for <abbr title="HyperText Markup Language">HTML</abbr>, <abbr title="Cascading Style Sheets">CSS</abbr>, and JavaScript.</p>
             <h2>About this project</h2>
             <p>Like the Web itself this project is forever a <em>work in progress</em>. I’ve decided to make Origin public for those interested. <strong>Origin it not a final solution, framework, or boilerplate I expect others to use “as is”.</strong> From time to time it will include experimental and far from optimal build tasks. You may prefer a less bespoke workflow like <a href="http://yeoman.io/" target="_blank">Yeoman</a> or a CSS framework like <a href="https://github.com/csswizardry/inuit.css" target="_blank">Inuit.css</a> without my preferences.</p>
             <p><a href="http://dbushell.com/2013/04/30/origin/" target="_blank"><strong>Learn more about Origin</strong></a></p>
@@ -86,32 +86,21 @@
             <p><small>Copyright © David Bushell | <a href="http://twitter.com/dbushell/" target="_blank">@dbushell</a> | <a href="http://dbushell.com/" target="_blank">http://dbushell.com/</a></small></p>
         </div>
     </div>
-</div>
-<!--
-<script type="text/javsacript" src="assets/js/vendor/jquery-1.10.1.min.js"></script>
-<script type="text/javsacript" src="assets/js/main.min.js"></script>
- -->
+</footer>
+
+<script type="text/javascript" src="assets/js/vendor/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="assets/js/main.min.js"></script>
+
 <script type="text/javascript">
 
-if (window.Modernizr !== undefined)
+$(document).ready(function()
 {
-    Modernizr.load([
-        {
-            load: [
-                'assets/js/vendor/jquery-1.10.1.min.js',
-                'assets/js/main.min.js'
-            ],
-            complete: function()
-            {
-                $(document).ready(function()
-                {
-                    window.App.init();
-                    $(document.documentElement).addClass('js-ready');
-                });
-            }
-        }
-    ]);
-}
+
+    window.App.init();
+    $(document.documentElement).addClass('js-ready');
+
+});
+
 </script>
 </body>
 </html>
