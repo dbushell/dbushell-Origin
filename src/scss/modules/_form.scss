@@ -32,8 +32,8 @@
 .field {
     display: block;
     clear: both;
-    @include appearance(none);
-    @include box-sizing(border-box);
+    appearance: none;
+    box-sizing: border-box;
     @include font-size(14, $unit--baseline - $unit);
     width: 100%;
     height: em($unit--baseline + $unit, 14);
@@ -86,8 +86,8 @@ fieldset {
     position: relative;
     display: inline-block;
     *display: block;
-    @include appearance(none);
-    @include box-sizing(border-box);
+    appearance: none;
+    box-sizing: border-box;
     @include font-size(14, $unit--baseline - $unit);
     padding: em($unit, 14) em($unit*2, 14);
     height: em($unit--baseline + $unit, 14);
@@ -165,7 +165,7 @@ fieldset {
                 width: em($unit--gutter+$unit, 14);
                 height: em($unit*3, 14);
                 background: $colour__text--light;
-                @include transition(left 50ms ease, background 50ms ease);
+                transition: left 50ms ease, background 50ms ease;
             }
         }
     }

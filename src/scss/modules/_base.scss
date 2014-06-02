@@ -58,7 +58,7 @@ canvas {
     float: left;
     padding: 0 em($unit--gutter/2);
     margin-bottom: em($unit--baseline);
-    @include box-sizing(border-box);
+    box-sizing: border-box;
 
     .no-boxsizing & {
         padding: 0;

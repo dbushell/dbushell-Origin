@@ -11,7 +11,8 @@ module.exports = function(grunt)
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-compass');
+    grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-autoprefixer');
 
     // build order
     grunt.registerTask('default',
@@ -22,7 +23,8 @@ module.exports = function(grunt)
         'htmlizr:prod',
 
         // compile Sass to ./build/assets/css/
-        'compass:prod',
+        'sass:prod',
+        'autoprefixer',
 
         // copy images, fonts, and JavaScript to ./build/assets/
         'copy:prod',
@@ -87,16 +89,30 @@ module.exports = function(grunt)
             }
         },
 
-        compass: {
+        sass: {
             prod: {
                 options: {
-                    sassDir: 'src/scss',
-                    imagesDir: 'src/img',
-                    fontsDir: 'src/fonts',
-                    cssDir: 'build/assets/css',
-                    noLineComments: true,
-                    outputStyle: 'compact' //'compressed',
-                }
+                    style: 'compressed' // nested, compact, compressed, expanded
+                },
+                files: [{
+                    expand: true,
+                    cwd: 'src/scss',
+                    src: ['*.scss'],
+                    dest: 'build/assets/css',
+                    ext: '.css'
+                }]
+            }
+        },
+
+        autoprefixer: {
+            // options: {
+            //     browsers: ['last 2 version', 'iOS5', 'ie 8', 'ie 9']
+            // },
+            multiple_files: {
+                expand: true,
+                flatten: true,
+                src: 'build/assets/css/*.css',
+                dest: 'build/assets/css/'
             }
         },
 

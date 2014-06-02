@@ -8,3 +8,4 @@ Desktop.ini
 .sass-cache
 node_modules
 build
+*.log
