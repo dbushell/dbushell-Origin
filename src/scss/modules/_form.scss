@@ -1,15 +1,18 @@
 
 .label {
     display: inline-block;
+    vertical-align: middle;
     @include font-size(14, $unit--baseline);
     font-weight: bold;
 }
 
 .label--checkbox {
     display: inline-block;
+    vertical-align: middle;
     @include font-size(14, $unit--baseline);
     font-weight: normal !important;
 
+    input[type="radio"],
     input[type="checkbox"] {
         float: left;
         font-size: inherit;
@@ -20,13 +23,17 @@
     input[type="checkbox"]:checked + span {
         color: $colour__text--link;
     }
+
+    input[checked="checked"] + span {
+        color: $colour__text--link;
+    }
 }
 
 .field {
     display: block;
     clear: both;
-    @include appearance(none);
-    @include box-sizing(border-box);
+    appearance: none;
+    box-sizing: border-box;
     @include font-size(14, $unit--baseline - $unit);
     width: 100%;
     height: em($unit--baseline + $unit, 14);
@@ -79,8 +86,8 @@ fieldset {
     position: relative;
     display: inline-block;
     *display: block;
-    @include appearance(none);
-    @include box-sizing(border-box);
+    appearance: none;
+    box-sizing: border-box;
     @include font-size(14, $unit--baseline - $unit);
     padding: em($unit, 14) em($unit*2, 14);
     height: em($unit--baseline + $unit, 14);
@@ -158,7 +165,7 @@ fieldset {
                 width: em($unit--gutter+$unit, 14);
                 height: em($unit*3, 14);
                 background: $colour__text--light;
-                @include transition(left 50ms ease, background 50ms ease);
+                transition: left 50ms ease, background 50ms ease;
             }
         }
     }
@@ -194,11 +201,29 @@ fieldset {
 }
 
 .form--inline {
+    margin-bottom: em($unit--baseline/2);
 
     .form__item {
         display: inline-block;
-        margin-right: em($unit--gutter/2);
         vertical-align: bottom;
+        margin-right: em($unit--gutter/2);
+        margin-bottom: em($unit--baseline/2);
+    }
+}
+
+.form--aligned {
+    .form__item {
+        position: relative;
+        padding-left: em(140 + $unit--gutter);
+
+        & > label:not(.label--checkbox) {
+            position: absolute;
+            top: 0;
+            left: 0;
+            text-align: right;
+            width: em(140, 14);
+            margin-top: em($unit/2);
+        }
     }
 }
 

@@ -37,7 +37,7 @@ $colour__bg--highlight      : #fff699;
 
 // Font usage for normal, display, script, and monospace stacks
 
-$fonts             : "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$fonts             : "Helvetica Neue", Helvetica, Arial, sans-serif;
 $fonts--display    : $fonts;
 $fonts--script     : Georga, serif;
 $fonts--monospace  : Monaco, Courier, monospace;
@@ -112,6 +112,13 @@ $old-ie: false !default;
 
 @mixin no-tap-highlight {
     -webkit-tap-highlight-color: rgba(0,0,0,0);
+    outline: none;
+}
+
+@mixin text-truncate {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 @mixin clearfix {

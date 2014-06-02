@@ -274,6 +274,22 @@ module.exports = function(grunt)
             });
         };
 
+        /**
+         * replace relative paths and assets
+         */
+        var parseVars = function(tmp)
+        {
+            // e.g. <!-- @var title -->
+            parseTags(tmp, new RegExp('(<!--[ \t]*?@var[ \t]*?(.*?)-->)', 'g'), function(match)
+            {
+                if (match.ref === 'title') {
+                    tmp.data = match.head + tmp.name + match.tail;
+                } else {
+                    tmp.data = match.head + match.tail;
+                }
+            });
+        };
+
         var build = function()
         {
             if (building || !cacheReady(includes) || !cacheReady(templates)) {
@@ -315,6 +331,7 @@ module.exports = function(grunt)
                         }
                     }
                     parsePaths(tmp);
+                    parseVars(tmp);
 
                     buffer = new Buffer(tmp.data);
                     fs.writeSync(fd, buffer, 0, buffer.length);

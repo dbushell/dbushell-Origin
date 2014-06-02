@@ -22,6 +22,8 @@ img {
 
 button, input, select {
     font-family: $fonts;
+    // https://github.com/twbs/bootstrap/issues/8702#issuecomment-21692968
+    background-image: none !important;
 }
 
 h1, h2, h3, h4, h5, h6, p, ul, ol, li {
@@ -56,7 +58,7 @@ canvas {
     float: left;
     padding: 0 em($unit--gutter/2);
     margin-bottom: em($unit--baseline);
-    @include box-sizing(border-box);
+    box-sizing: border-box;
 
     .no-boxsizing & {
         padding: 0;

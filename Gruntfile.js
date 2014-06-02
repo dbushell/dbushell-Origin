@@ -4,13 +4,15 @@ module.exports = function(grunt)
     grunt.loadTasks('tasks');
 
     // npm module tasks
-    grunt.loadNpmTasks('svgo-grunt');
+    grunt.loadNpmTasks('grunt-svgmin');
+    grunt.loadNpmTasks('grunt-svg2png');
     grunt.loadNpmTasks('grunt-imageoptim');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-compass');
+    grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-autoprefixer');
 
     // build order
     grunt.registerTask('default',
@@ -21,7 +23,8 @@ module.exports = function(grunt)
         'htmlizr:prod',
 
         // compile Sass to ./build/assets/css/
-        'compass:prod',
+        'sass:prod',
+        'autoprefixer',
 
         // copy images, fonts, and JavaScript to ./build/assets/
         'copy:prod',
@@ -30,15 +33,17 @@ module.exports = function(grunt)
         'uglify:prod',
 
         // optimise SVG in ./build/assets/img/
-        'svgo:prod',
+        'svgmin:prod',
 
         // rasterize SVG in ./build/assets/img/
-        'rasterize:prod',
+        'svg2png:prod',
 
         // optimise images in ./build/assets/img/
         'imageoptim:prod'
 
     ]);
+
+    grunt.registerTask('server', [/*'default',*/ 'webserver']);
 
     grunt.initConfig({
 
@@ -84,16 +89,30 @@ module.exports = function(grunt)
             }
         },
 
-        compass: {
+        sass: {
             prod: {
                 options: {
-                    sassDir: 'src/scss',
-                    imagesDir: 'src/img',
-                    fontsDir: 'src/fonts',
-                    cssDir: 'build/assets/css',
-                    noLineComments: true,
-                    outputStyle: 'compact' //'compressed',
-                }
+                    style: 'compressed' // nested, compact, compressed, expanded
+                },
+                files: [{
+                    expand: true,
+                    cwd: 'src/scss',
+                    src: ['*.scss'],
+                    dest: 'build/assets/css',
+                    ext: '.css'
+                }]
+            }
+        },
+
+        autoprefixer: {
+            // options: {
+            //     browsers: ['last 2 version', 'iOS5', 'ie 8', 'ie 9']
+            // },
+            multiple_files: {
+                expand: true,
+                flatten: true,
+                src: 'build/assets/css/*.css',
+                dest: 'build/assets/css/'
             }
         },
 
@@ -106,7 +125,7 @@ module.exports = function(grunt)
                     {
                         expand: true,
                         cwd: 'src/',
-                        src: ['js/**/*.js'],
+                        src: ['js/**/*.js', "!js/**/*.min.js"],
                         dest: 'build/assets/',
                         ext: '.min.js'
                     }
@@ -114,15 +133,24 @@ module.exports = function(grunt)
             }
         },
 
-        svgo: {
+        svgmin: {
             prod: {
-                files: 'build/assets/img/**/*.svg'
+                files: [
+                    { expand: true, cwd: 'src/', src: ['img/**/*.svg'], dest: 'build/assets/' }
+                ],
+                options: {
+                    plugins: [{
+                        removeViewBox: false
+                    }]
+                }
             }
         },
 
-        rasterize: {
+        svg2png: {
             prod: {
-                files: 'build/assets/img/**/*.svg'
+                files: [
+                    { src: ['build/assets/img/**/*.svg'] }
+                ]
             }
         },
 
@@ -138,9 +166,7 @@ module.exports = function(grunt)
 
         imageoptim: {
             prod: {
-                files: [
-                    { expand: true, cwd: 'build/', src: ['assets/img/**/*'] }
-                ],
+                src: ['build/assets/img'],
                 options: {
                     quitAfter: true
                 }

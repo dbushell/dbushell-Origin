@@ -6,12 +6,11 @@
  *
  */
 
-@import "compass/css3";
 @import "normalize";
+@import "origin";
 
-@import "origin/origin";
-@import "origin/base";
-@import "origin/typography";
+@import "modules/base";
+@import "modules/typography";
 
 body {
     color: $colour__text;

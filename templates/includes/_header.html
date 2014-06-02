@@ -12,9 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
 
-    <title>Website</title>
-
-    <script src="<!-- @asset /js/loadrunner.js -->"></script>
+    <title><!-- @var title --></title>
 
     <!--[if (gt IE 8) | (IEMobile)]><!-->
     <link rel="stylesheet" href="<!-- @asset css/style.css -->">
@@ -23,7 +21,9 @@
     <link rel="stylesheet" href="<!-- @asset /css/oldie.css -->">
     <![endif]-->
 
-    <link rel="shortcut icon" type="image/png" href="<!-- @asset img/favicon.ico -->">
+    <script src="<!-- @asset /js/loadrunner.js -->"></script>
+
+    <link rel="shortcut icon" type="image/x-icon" href="<!-- @asset img/favicon.ico -->">
 
     <!--
     <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
@@ -36,7 +36,7 @@
 </head>
 <body>
 
-<header id="header" role="header">
+<header id="header" role="banner">
     <div class="block">
         <h1 class="block__title">Origin</h1>
 <!-- @include _nav.html -->
