@@ -11,8 +11,12 @@ module.exports = function(grunt)
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+
+    // grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-autoprefixer');
+
+    grunt.registerTask('css', ['sass:prod', 'autoprefixer']);
 
     // build order
     grunt.registerTask('default',
@@ -53,7 +57,7 @@ module.exports = function(grunt)
 
             css: {
                 files: 'src/scss/**/*.scss',
-                tasks: ['compass:prod'],
+                tasks: ['sass:prod', 'autoprefixer'],
                 options: {
                   interrupt: true
                 }

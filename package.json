@@ -1,33 +1,26 @@
 {
-    "name" : "dbushell-Origin",
-
-    "description": "My HTML5, CSS, and JavaScript starting point for front-end development with automated build tasks.",
-
-    "author": "David Bushell <david@dbushell.com>",
-
-    "version" : "2.0.1",
-
-    "private": true,
-
-    "repository": {
-        "type": "git",
-        "url" : "https://github.com/dbushell/dbushell-Origin.git"
-    },
-
-    "dependencies":
-    {
-        "grunt"                   : ">=0.4.x",
-        "connect"                 : ">=2.7.x",
-        "grunt-svgmin"            : ">=0.2.x",
-        "grunt-svg2png"           : ">=0.1.x",
-        "grunt-imageoptim"        : ">=1.x.x",
-        "grunt-contrib-copy"      : ">=0.4.x",
-        "grunt-contrib-watch"     : ">=0.2.x",
-        "grunt-contrib-jshint"    : ">=0.1.x",
-        "grunt-contrib-uglify"    : ">=0.1.x",
-        "grunt-contrib-sass"      : ">=0.7.x",
-        "grunt-autoprefixer"      : ">=0.7.x"
-    },
-
-    "engine": "node >= 0.8.x"
+  "name": "dbushell-Origin",
+  "description": "My HTML5, CSS, and JavaScript starting point for front-end development with automated build tasks.",
+  "author": "David Bushell <david@dbushell.com>",
+  "version": "2.0.1",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dbushell/dbushell-Origin.git"
+  },
+  "dependencies": {
+    "connect": "^2.19.4",
+    "grunt": "^0.4.5",
+    "grunt-autoprefixer": "^0.7.4",
+    "grunt-contrib-copy": "^0.5.0",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-sass": "^0.7.3",
+    "grunt-contrib-uglify": "^0.4.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-imageoptim": "^1.4.1",
+    "grunt-sass": "^0.13.0",
+    "grunt-svg2png": "^0.2.1",
+    "grunt-svgmin": "^0.4.0"
+  },
+  "engine": "node >= 0.10.x"
 }
