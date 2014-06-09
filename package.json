@@ -20,7 +20,16 @@
     "grunt-imageoptim": "^1.4.1",
     "grunt-sass": "^0.13.0",
     "grunt-svg2png": "^0.2.1",
-    "grunt-svgmin": "^0.4.0"
+    "grunt-svgmin": "^0.4.0",
+    "gulp": "^3.7.0",
+    "gulp-compass": "^1.1.9",
+    "gulp-imagemin": "^0.6.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-svgmin": "^0.4.6",
+    "gulp-uglify": "^0.3.0",
+    "gulp-util": "^2.2.16",
+    "phantomjs": "^1.9.7-8",
+    "through2": "^0.5.1"
   },
   "engine": "node >= 0.10.x"
 }
