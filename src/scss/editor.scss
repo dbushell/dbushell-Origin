@@ -16,8 +16,7 @@ body {
     color: $colour__text;
     font-size: 16px;
     line-height: 1;
-    font-family: $fonts;
+    font-family: $fonts--serif;
     padding: em($unit * 2);
     background: $colour__bg;
-    @include prose-content;
 }

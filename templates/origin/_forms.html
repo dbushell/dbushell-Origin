@@ -1,8 +1,8 @@
 
-        <h2 class="h2 block__title">Forms and Buttons</h2>
+        <h2>Forms and Buttons</h2>
         <form class="form" id="form-signup">
             <fieldset>
-                <legend>Create your account</legend>
+                <!-- <legend>Create your account</legend> -->
                 <ul class="form__list">
                     <li class="form__item">
                         <label for="form-signup__email">Email Address</label>
@@ -22,7 +22,7 @@
                         </label>
                     </li>
                 <li class="form__item">
-                    <input type="submit" class="button button--large" value="Sign Up">
+                    <input type="submit" class="button" value="Sign Up">
                 </li>
                 </ul>
             </fieldset>
@@ -30,7 +30,7 @@
 
         <hr>
 
-        <h2 class="h2">Buttons</h2>
+        <h2>Buttons</h2>
 
         <input type="submit" class="button" value="Submit">
         <button type="button" class="button">Button</button>
@@ -44,6 +44,7 @@
         <button type="button" class="button button--small">Small Button</button>
         <p class="p"><code>.button--small</code></p>
 
+<!--
         <hr>
 
         <h2 class="h2">Switches</h2>
@@ -58,10 +59,11 @@
         </label>
 
         <!-- @include origin/code/_switches.html -->
+-->
 
         <hr>
 
-        <h2 class="h2">Aligned Form</h2>
+        <h2>Aligned Form</h2>
         <form class="form form--aligned" id="form-signup">
             <fieldset>
                 <ul class="form__list">
@@ -79,30 +81,33 @@
                         </label>
                     </li>
                 <li class="form__item">
-                    <input type="submit" class="button button--large" value="Login">
+                    <input type="submit" class="button" value="Login">
                 </li>
                 </ul>
             </fieldset>
         </form>
 
-        <h2 class="h2">Inline Form</h2>
+        <h2>Inline Form</h2>
 
         <form class="form form--inline" id="form-login">
             <ul class="form__list">
                 <li class="form__item">
                     <label for="form-login__username">Username</label>
                     <input type="text" class="field" id="form-login__username" placeholder="Username…">
+                </li>
                 <li class="form__item">
                     <label for="form-login__password">Password</label>
                     <input type="password" class="field" id="form-login__password">
+                </li>
                 <li class="form__item">
                     <input type="submit" class="button" value="Login">
+                </li>
             </ul>
         </form>
 
         <!-- @include origin/code/_form-inline.html -->
 
-        <h2 class="h2">Single Form <small>(full-width)</small></h2>
+        <h2>Single Form <small>(full-width)</small></h2>
 
         <form class="form form--single" id="form-search">
             <ul class="form__list">

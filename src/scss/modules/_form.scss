@@ -1,4 +1,11 @@
 
+.button, .label, .field, button, label, input, select {
+    font-family: $fonts--sans;
+    // https://github.com/twbs/bootstrap/issues/8702#issuecomment-21692968
+    background-image: none !important;
+    text-shadow: none !important;
+}
+
 .label {
     display: inline-block;
     vertical-align: middle;
@@ -30,29 +37,31 @@
 }
 
 .field {
+    @include no-appearance;
     display: block;
     clear: both;
-    appearance: none;
     box-sizing: border-box;
-    @include font-size(14, $unit--baseline - $unit);
+    @include font-size(16, $unit--field - (($unit * 2) + 4));
     width: 100%;
-    height: em($unit--baseline + $unit, 14);
-    padding: em($unit, 14);
+    max-width: em(400);
+    height: em($unit--field);
+    padding: em($unit) em($unit * 2);
     outline: none;
     color: $colour__text--light;
-    border: 1px solid $colour__hairline--dark;
-    background: #fff;
+    border: em(2) solid $colour__hairline;
+    background: $colour__bg--light;
+    font-family: $fonts--sans;
 
     &:focus {
-        color: $colour__text--focus;
+        color: $colour__text;
         border-color: $colour__text--link;
     }
 
     .lt-ie8 &,
     .no-boxsizing & {
         padding: 0;
-        line-height: em($unit--baseline + $unit, 14);
-        text-indent: em($unit, 14);
+        line-height: em($unit--baseline + $unit);
+        text-indent: em($unit);
     }
 
     input[type="file"] {
@@ -62,6 +71,7 @@
 
 textarea.field {
     height: auto;
+    max-width: none;
     min-height: em(($unit--baseline*3) + $unit);
 }
 
@@ -83,107 +93,113 @@ fieldset {
 }
 
 .button {
+    @include no-appearance;
     position: relative;
     display: inline-block;
-    *display: block;
-    appearance: none;
+    *display: inline;
     box-sizing: border-box;
-    @include font-size(14, $unit--baseline - $unit);
-    padding: em($unit, 14) em($unit*2, 14);
-    height: em($unit--baseline + $unit, 14);
+    @include font-size(16, $unit--field - (($unit * 2) + 4));
+    padding: em($unit) em($unit * 3);
+    height: em($unit--field);
     outline: none;
     border: none;
-    color: #fff;
+    color: $colour__text--link;
     font-weight: bold;
     vertical-align: middle;
-    background-color: $colour__text--link;
+    border-radius: em(5);
+    border: em(2) solid $colour__text--link;
+    transition: border-color 100ms ease, background-color 100ms ease, transform 100ms ease;
+    background-color: transparent;
 
     &:focus,
     &:hover {
-        background-color: $colour__text--link--hover;
+        color: $colour__text--link--hover;
+        border-color: $colour__text--link--hover;
+        border-width: em(2);
     }
 }
 
 .button--link {
-    color: $colour__text--link;
     text-decoration: underline;
     background: transparent;
-
-    &:focus, &:hover {
-        color: $colour__text--link--hover;
-        background: $colour__bg--light;
-    }
+    border-color: transparent !important;
 }
 
 .button--large {
-    @include font-size(16, $unit--baseline - $unit);
-    padding: em($unit*2, 16) em($unit*3, 16);
-    height: em($unit--baseline + ($unit*3), 16);
+    @include font-size(18, $unit--field - 4);
+    border-width: em(2, 18) !important;
+    border-radius: em(8, 18);
+    padding: em($unit, 18) em($unit * 4, 18);
+    height: em($unit--field + ($unit * 2), 18);
 }
 
 .button--small {
-    @include font-size(12, $unit--baseline);
-    padding: 0 em($unit*1.5, 12);
-    height: em($unit--baseline, 12);
+    @include font-size(14, $unit--field - ($unit + 4));
+    border-width: em(2, 14) !important;
+    border-radius: em(5, 14);
+    padding: 0 em($unit * 1.5, 14);
+    height: em($unit--field - ($unit), 14);
 }
 
-.switch {
-    // scope with both selectors to avoid partial support
-    &:checked ,
-    &:not(:checked) {
-        @include visually-hidden;
+// .switch {
+//     // scope with both selectors to avoid partial support
+//     &:checked ,
+//     &:not(:checked) {
+//         @include visually-hidden;
 
-        & + span {
-            position: relative;
-            display: inline-block;
+//         & + span {
+//             position: relative;
+//             display: inline-block;
 
-            &:before {
-                content: "Off";
-                position: relative;
-                display: inline-block;
-                font-size: em(12, 14);
-                line-height: em($unit*3, 12);
-                top: em($unit/2, 12);
-                width: em($unit--gutter*2, 12);
-                height: em($unit*3, 12);
-                padding: 0 em($unit, 12);
-                margin-right: em($unit, 12);
-                background: $colour__bg--light;
-                vertical-align: top;
-                color: $colour__text--light;
-                font-weight: bold;
-                text-align: right;
-                text-transform: uppercase;
-            }
+//             &:before {
+//                 content: "Off";
+//                 position: relative;
+//                 display: inline-block;
+//                 font-size: em(12, 14);
+//                 line-height: em($unit*3, 12);
+//                 top: em($unit/2, 12);
+//                 width: em($unit--gutter*2, 12);
+//                 height: em($unit*3, 12);
+//                 padding: 0 em($unit, 12);
+//                 margin-right: em($unit, 12);
+//                 background: $colour__bg--light;
+//                 vertical-align: top;
+//                 color: $colour__text--light;
+//                 font-weight: bold;
+//                 text-align: right;
+//                 text-transform: uppercase;
+//             }
 
-            &:after {
-                content: "";
-                position: absolute;
-                display: block;
-                top: em($unit/2, 14);
-                left: 0;
-                width: em($unit--gutter+$unit, 14);
-                height: em($unit*3, 14);
-                background: $colour__text--light;
-                transition: left 50ms ease, background 50ms ease;
-            }
-        }
-    }
+//             &:after {
+//                 content: "";
+//                 position: absolute;
+//                 display: block;
+//                 top: em($unit/2, 14);
+//                 left: 0;
+//                 width: em($unit--gutter+$unit, 14);
+//                 height: em($unit*3, 14);
+//                 background: $colour__text--light;
+//                 transition: left 50ms ease, background 50ms ease;
+//             }
+//         }
+//     }
 
-    &:checked + span {
-        &:before {
-            content: "On";
-            text-align: left;
-        }
-        &:after {
-            left: em($unit--gutter+$unit, 14);
-            background: $colour__text--link;
-        }
-    }
-}
+//     &:checked + span {
+//         &:before {
+//             content: "On";
+//             text-align: left;
+//         }
+//         &:after {
+//             left: em($unit--gutter+$unit, 14);
+//             background: $colour__text--link;
+//         }
+//     }
+// }
 
 .form__list {
     @include clearfix;
+    margin: 0;
+    list-style: none;
 
     &:last-child {
         margin-bottom: 0;
@@ -191,13 +207,23 @@ fieldset {
 }
 
 .form__item {
-    margin-bottom: em($unit);
+    font-size: inherit;
+    line-height: 0;
+    margin-bottom: em($unit--baseline / 2);
+
+    &:last-child { margin-bottom: 0; }
 }
 
 .form {
     margin-bottom: em($unit--baseline);
 
-    label { @extend .label; }
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    label {
+        @extend .label;
+    }
 }
 
 .form--inline {
@@ -212,17 +238,17 @@ fieldset {
 }
 
 .form--aligned {
+
     .form__item {
         position: relative;
         padding-left: em(140 + $unit--gutter);
 
-        & > label:not(.label--checkbox) {
+        & > label:not([class*="label--"]) {
             position: absolute;
-            top: 0;
+            top: em($unit, 14);
             left: 0;
             text-align: right;
             width: em(140, 14);
-            margin-top: em($unit/2);
         }
     }
 }
@@ -238,12 +264,16 @@ fieldset {
         display: table-cell;
         margin: 0;
         width: 100%;
-        height: em($unit*5);
+        height: em($unit--field);
         vertical-align: top;
 
         &:last-child {
             width: auto;
         }
+    }
+
+    .field {
+        max-width: none;
     }
 
     label {
@@ -252,6 +282,6 @@ fieldset {
 
     .button {
         float: right;
-        margin-left: em($unit--gutter/2, 14);
+        margin-left: em($unit--gutter/2);
     }
 }

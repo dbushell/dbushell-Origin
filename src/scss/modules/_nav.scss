@@ -1,5 +1,7 @@
 
-#nav {
+.nav {
+    font-family: $fonts--sans;
+
     a {
         display: inline-block;
         padding: em($unit) em($unit*2);
