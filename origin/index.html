@@ -36,11 +36,11 @@
 </head>
 <body>
 
-<header id="header" role="banner">
+<header class="header" role="banner">
     <div class="block">
         <h1 class="block__title">Origin</h1>
 
-    <nav id="nav" role="navigation">
+    <nav class="nav" role="navigation">
         <h2 class="nav__title">Site navigation</h2>
         <a href="../index.html">Home</a>
         <a href="index.html">Origin (alpha)</a>
@@ -52,18 +52,57 @@
 
 <style>
 /**
- * prism.js default theme for JavaScript, CSS and HTML
- * Based on dabblet (http://dabblet.com)
- * @author Lea Verou
+ * prism.js Monokai theme for CSS & Sass/Scss
+ *
+ * @todo test for JavaScript & HTML
+ *
+ * @author @MoOx
  */
-code[class*="language-"],pre[class*="language-"]{color:black;text-shadow:0 1px white;font-family:Consolas,Monaco,'Andale Mono',monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}@media print{code[class*="language-"],pre[class*="language-"]{text-shadow:none}}pre[class*="language-"]{overflow:auto}:not(pre)>code[class*="language-"]{padding:.1em;border-radius:.3em}.token.comment,.token.prolog,.token.doctype,.token.cdata{color:slategray}.token.punctuation{color:#999}.namespace{opacity:.7}.token.property,.token.tag,.token.boolean,.token.number{color:#905}.token.selector,.token.attr-name,.token.string{color:#690}.token.operator,.token.entity,.token.url,.language-css .token.string,.style .token.string{color:#a67f59;background:hsla(0,0%,100%,.5)}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.regex,.token.important{color:#e90}.token.important{font-weight:bold}.token.entity{cursor:help}
+.namespace {
+  opacity: 0.7; }
+
+.token.comment, .token.prolog, .token.doctype, .token.cdata {
+  color: #8c8c85; }
+.token.null, .token.operator, .token.boolean, .token.number {
+  color: #a77afe; }
+.token.attr-name, .token.string {
+  color: #e6d06c; }
+.token.entity, .token.url, .language-css .token.string, .style .token.string {
+  color: #e6d06c; }
+.token.selector {
+  color: #a6e22d; }
+.token.property, .token.tag, .token.constant, .token.symbol, .token.atrule, .token.attr-value, .token.keyword, .token.control, .token.directive, .token.important, .token.unit {
+  color: #ff3377; }
+.token.regex, .token.statement {
+  color: #76d9e6; }
+.token.placeholder, .token.variable {
+  color: #ffffff; }
+.token.important, .token.statement {
+  font-weight: bold; }
+.token.punctuation {
+  color: #bebec5; }
+.token.entity {
+  cursor: help; }
+.token.debug {
+  color: red; }
+
+.language-markup .token.tag {
+  color: #ff3377; }
+.language-markup .token.attr-name {
+  color: #a6e22d; }
+.language-markup .token.attr-value {
+  color: #e6d06c; }
+.language-markup .token.style, .language-markup .token.script {
+  color: #76d9e6; }
+.language-markup .token.script .token.keyword {
+  color: #76d9e6; }
 </style>
 
 <main role="main" id="main">
 
     <section class="block block--origin">
         <div class="prose">
-            <h1 class="block__title">What’s on this page?</h1>
+            <h1>What’s on this page?</h1>
             <p>This page includes common code patterns and techniques I use on a regular basis (this is pre-design). As a build progresses this page will evolve into a hybrid style guide &mdash; or <q>pattern library</q> &mdash; and global testing page.</p>
             <h2>Contents:</h2>
             <ul>
@@ -74,26 +113,25 @@ code[class*="language-"],pre[class*="language-"]{color:black;text-shadow:0 1px w
                 <li><a href="#block-tables">Tables</a></li>
             </ul>
         </div>
+        <hr>
     </section>
 
     <section class="block block--origin" id="block-typography">
 
-        <h2 class="h2 block__title">Typography</h2>
-        <p class="p">General typographic styles are either scoped with <code>.prose</code> or applied with individual classes like <code>.h1</code> or <code>.p--small</code>. This practice stops style leaking into unexpected areas. See my article <a href="http://dbushell.com/2012/04/18/scoping-typography-css/" target="_blank">Scoping Typography CSS</a>.</p>
+        <h2>Typography</h2>
 
-        <div class="prose">
-            <h1>This is the primary headline</h1>
-            <h2>This is a secondary headline</h2>
-            <h3>This is a tertiary headline</h3>
-            <h4>This is a average headline</h4>
-            <h5>This is a small headline</h5>
-            <h6>This is a micro headline</h6>
-        </div>
+        <p>General typographic styles are either scoped with <code>.prose</code> or applied with individual classes like <code>.h1</code> or <code>.p--small</code>. This practice stops style leaking into unexpected areas. See my article <a href="http://dbushell.com/2012/04/18/scoping-typography-css/" target="_blank">Scoping Typography CSS</a>.</p>
+
+        <h1>This is the primary headline</h1>
+        <h2>This is a secondary headline</h2>
+        <h3>This is a tertiary headline</h3>
+        <h4>This is a average headline</h4>
+        <h5>This is a small headline</h5>
+        <h6>This is a micro headline</h6>
 
         <hr>
 
         <div class="prose">
-            <h1>This is a paragraph</h1>
             <p><em>I make websites</em>. I help small businesses, start-ups, individuals, and <a href="#">fellow web agencies</a> make the most of their web presence. I like to call myself a <q>Websitemaker</q>. It gets straight to the point. While I specialise in design and <mark>front-end development</mark>, my experience and knowledge covers a whole lot more. So if anyone asks, tell them I make websites.</p>
             <ul>
                 <li>Responsive website design</li>
@@ -112,24 +150,18 @@ code[class*="language-"],pre[class*="language-"]{color:black;text-shadow:0 1px w
                 <li>Run <code>npm install</code></li>
                 <li>Run <code>grunt watch</code> and start coding!</li>
             </ol>
-            <p><small>Copyright &copy; 2013 David Bushell &mdash; this is small print.</small></p>
-        </div>
+            <p class="p--small"><small>Copyright &copy; 2013 David Bushell &mdash; this is small print.</small></p>
 
-        <div class="prose">
             <h3>This is a large paragraph</h3>
             <p class="p--large">I make websites. I help small businesses, start-ups, individuals, and fellow web agencies make the most of their web presence. I like to call myself a <q>Websitemaker</q>.</p>
-        </div>
 
-        <div class="prose">
             <h3>This is a small paragraph</h3>
             <p class="p--small">I make websites. I help small businesses, start-ups, individuals, and fellow web agencies make the most of their web presence. I like to call myself a <q>Websitemaker</q>. It gets straight to the point. While I specialise in design and front-end development, my experience and knowledge covers a whole lot more. So if anyone asks, tell them I make websites.</p>
-        </div>
 
-        <div class="prose">
-            <h2>This is a blockquote</h2>
+            <h3>This is a blockquote</h3>
             <blockquote>
-                <p>I consider a browser supported if I actively test the core content and functionality — integral to the purpose of the website — is accessible. I’ll also take steps to ensure the quality of design and overall experience is on par with the browser’s capabilities.</p>
-                <cite>David Bushell</cite>
+                <p class="p--large p--quote">I consider a browser supported if I actively test the core content and functionality — integral to the purpose of the website — is accessible. I’ll also take steps to ensure the quality of design and overall experience is on par with the browser’s capabilities.</p>
+                <p class="p--small"><cite>David Bushell</cite></p>
             </blockquote>
         </div>
 
@@ -138,10 +170,10 @@ code[class*="language-"],pre[class*="language-"]{color:black;text-shadow:0 1px w
 
     <section class="block block--origin" id="block-forms">
 
-        <h2 class="h2 block__title">Forms and Buttons</h2>
+        <h2>Forms and Buttons</h2>
         <form class="form" id="form-signup">
             <fieldset>
-                <legend>Create your account</legend>
+                <!-- <legend>Create your account</legend> -->
                 <ul class="form__list">
                     <li class="form__item">
                         <label for="form-signup__email">Email Address</label>
@@ -161,7 +193,7 @@ code[class*="language-"],pre[class*="language-"]{color:black;text-shadow:0 1px w
                         </label>
                     </li>
                 <li class="form__item">
-                    <input type="submit" class="button button--large" value="Sign Up">
+                    <input type="submit" class="button" value="Sign Up">
                 </li>
                 </ul>
             </fieldset>
@@ -169,7 +201,7 @@ code[class*="language-"],pre[class*="language-"]{color:black;text-shadow:0 1px w
 
         <hr>
 
-        <h2 class="h2">Buttons</h2>
+        <h2>Buttons</h2>
 
         <input type="submit" class="button" value="Submit">
         <button type="button" class="button">Button</button>
@@ -187,6 +219,7 @@ code[class*="language-"],pre[class*="language-"]{color:black;text-shadow:0 1px w
         <button type="button" class="button button--small">Small Button</button>
         <p class="p"><code>.button--small</code></p>
 
+<!--
         <hr>
 
         <h2 class="h2">Switches</h2>
@@ -205,10 +238,11 @@ code[class*="language-"],pre[class*="language-"]{color:black;text-shadow:0 1px w
 &lt;/label&gt;</code></pre>
 
 
+-->
 
         <hr>
 
-        <h2 class="h2">Aligned Form</h2>
+        <h2>Aligned Form</h2>
         <form class="form form--aligned" id="form-signup">
             <fieldset>
                 <ul class="form__list">
@@ -226,24 +260,27 @@ code[class*="language-"],pre[class*="language-"]{color:black;text-shadow:0 1px w
                         </label>
                     </li>
                 <li class="form__item">
-                    <input type="submit" class="button button--large" value="Login">
+                    <input type="submit" class="button" value="Login">
                 </li>
                 </ul>
             </fieldset>
         </form>
 
-        <h2 class="h2">Inline Form</h2>
+        <h2>Inline Form</h2>
 
         <form class="form form--inline" id="form-login">
             <ul class="form__list">
                 <li class="form__item">
                     <label for="form-login__username">Username</label>
                     <input type="text" class="field" id="form-login__username" placeholder="Username…">
+                </li>
                 <li class="form__item">
                     <label for="form-login__password">Password</label>
                     <input type="password" class="field" id="form-login__password">
+                </li>
                 <li class="form__item">
                     <input type="submit" class="button" value="Login">
+                </li>
             </ul>
         </form>
 
@@ -252,16 +289,19 @@ code[class*="language-"],pre[class*="language-"]{color:black;text-shadow:0 1px w
         &lt;li class=&quot;form__item&quot;&gt;
             &lt;label for=&quot;form-login__username&quot;&gt;Username&lt;/label&gt;
             &lt;input class=&quot;field&quot; id=&quot;form-login__username&quot; placeholder=&quot;Username…&quot;&gt;
+        &lt;/li&gt;
         &lt;li class=&quot;form__item&quot;&gt;
             &lt;label for=&quot;form-login__password&quot;&gt;Password&lt;/label&gt;
             &lt;input type=&quot;password&quot; class=&quot;field&quot; id=&quot;form-login__password&quot; placeholder=&quot;Password…&quot;&gt;
+        &lt;/li&gt;
         &lt;li class=&quot;form__item&quot;&gt;
             &lt;input type=&quot;submit&quot; class=&quot;button&quot; value=&quot;Login&quot;&gt;
+        &lt;/li&gt;
     &lt;/ul&gt;
 &lt;/form&gt;</code></pre>
 
 
-        <h2 class="h2">Single Form <small>(full-width)</small></h2>
+        <h2>Single Form <small>(full-width)</small></h2>
 
         <form class="form form--single" id="form-search">
             <ul class="form__list">
@@ -332,7 +372,7 @@ code[class*="language-"],pre[class*="language-"]{color:black;text-shadow:0 1px w
 
     <section class="block block--origin" id="block-layouts">
 
-        <h2 class="h2 block__title">Other Layouts</h2>
+        <h2>Other Layouts</h2>
 
         <article class="media">
             <img class="media__image" src="../assets/img/apple-touch-icon.png" alt="example">
@@ -352,6 +392,8 @@ code[class*="language-"],pre[class*="language-"]{color:black;text-shadow:0 1px w
             </div>
         </article>
 
+<!--
+
         <h3 class="h3">Justified Grid <mark>(experimental)</mark></h3>
 
         <ul class="justified">
@@ -364,12 +406,14 @@ code[class*="language-"],pre[class*="language-"]{color:black;text-shadow:0 1px w
             <li class="justified__item">Item Seven</li>
         </ul>
 
+-->
+
     </section>
     <!--/#block-layouts-->
 
     <section class="block block--origin" id="block-tables">
 
-        <h2 class="h2 block__title">Tables</h2>
+        <h2>Tables</h2>
 
         <div class="prose">
             <p>Tables can sit inside <code>.prose</code> content and will receive standard baseline margins.</p>
@@ -552,6 +596,7 @@ code[class*="language-"],pre[class*="language-"]{color:black;text-shadow:0 1px w
                 </tbody>
             </table>
 
+<!--
             <h3>Responsive Table <mark>(experimental)</mark></h3>
             <p><code>.table--responsive</code> &mdash; this technique requires a <strong>content-specific breakpoint</strong>. See my article <a href="http://dbushell.com/2012/01/05/responsive-tables-2/"><strong>Responsive Tables (2)</strong></a>.</p>
             <table class="table table--striped table--bordered table-responsive">
@@ -597,6 +642,7 @@ code[class*="language-"],pre[class*="language-"]{color:black;text-shadow:0 1px w
                 </tbody>
             </table>
         </div>
+-->
 
     </section>
     <!--/#block-tables-->
@@ -617,11 +663,10 @@ Prism.languages.javascript=Prism.languages.extend("clike",{keyword:/\b(var|let|i
 </script>
 
 
-<footer id="footer" role="contentinfo">
+<footer class="footer" role="contentinfo">
     <div class="block">
-        <div class="prose">
-            <p><small>Copyright © David Bushell | <a href="http://twitter.com/dbushell/" target="_blank">@dbushell</a> | <a href="http://dbushell.com/" target="_blank">http://dbushell.com/</a></small></p>
-        </div>
+        <p><small>Copyright © David Bushell | <a href="http://twitter.com/dbushell/" target="_blank">@dbushell</a> | <a href="http://dbushell.com/" target="_blank">http://dbushell.com/</a></small></p>
+        <hr>
     </div>
 </footer>
 
