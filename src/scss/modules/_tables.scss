@@ -45,53 +45,53 @@
 
 // @include respond-max(640)
 // {
-    .table-responsive {
-        display: block;
+    // .table-responsive {
+    //     display: block;
 
-        thead {
-            @include clearfix;
-            display: block;
-            float: left;
+    //     thead {
+    //         @include clearfix;
+    //         display: block;
+    //         float: left;
 
-            tr {
-                display: block;
-            }
-        }
+    //         tr {
+    //             display: block;
+    //         }
+    //     }
 
-        tbody {
-            font-size: 0;
-            position: relative;
-            display: block;
-            width: auto;
-            overflow-x: auto;
-            white-space: nowrap;
-        }
+    //     tbody {
+    //         font-size: 0;
+    //         position: relative;
+    //         display: block;
+    //         width: auto;
+    //         overflow-x: auto;
+    //         white-space: nowrap;
+    //     }
 
-        tr {
-            font-size: 16px;
-            font-size: 1rem;
-            display: inline-block;
-            vertical-align: top;
-        }
+    //     tr {
+    //         font-size: 16px;
+    //         font-size: 1rem;
+    //         display: inline-block;
+    //         vertical-align: top;
+    //     }
 
-        th, td {
-            display: block;
-            min-height: em($unit*3);
-        }
+    //     th, td {
+    //         display: block;
+    //         min-height: em($unit*3);
+    //     }
 
-        // fix table border collapsing
-        &.table--bordered {
-            thead {
-                border-left: 1px solid $colour__hairline;
-                border-top: 1px solid $colour__hairline;
-            }
-            tbody {
-                border-top: 1px solid $colour__hairline;
-            }
-            th, td {
-                border-top: 0;
-                border-left: 0;
-            }
-        }
-    }
+    //     // fix table border collapsing
+    //     &.table--bordered {
+    //         thead {
+    //             border-left: 1px solid $colour__hairline;
+    //             border-top: 1px solid $colour__hairline;
+    //         }
+    //         tbody {
+    //             border-top: 1px solid $colour__hairline;
+    //         }
+    //         th, td {
+    //             border-top: 0;
+    //             border-left: 0;
+    //         }
+    //     }
+    // }
 // }
