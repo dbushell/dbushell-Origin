@@ -1,6 +1,7 @@
 
 .table {
     width: 100%;
+    margin-bottom: em($unit--baseline);
 
     tr { border-bottom: 1px solid $colour__hairline; }
 
@@ -22,6 +23,8 @@
         font-size: inherit;
         line-height: inherit;
     }
+
+    &:last-child { margin-bottom: 0; }
 }
 
 .table--striped {
