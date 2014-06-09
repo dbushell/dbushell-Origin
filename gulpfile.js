@@ -1,13 +1,15 @@
 
-var gulp          = require('gulp'),
-    gulp_util     = require('gulp-util'),
-    gulp_rename   = require('gulp-rename'),
-    gulp_uglify   = require('gulp-uglify'),
-    gulp_svgmin   = require('gulp-svgmin'),
-    gulp_sass     = require('gulp-compass'),
-    gulp_imagemin = require('gulp-imagemin'),
-    gulp_svg2png  = require('./tasks/gulp-svg2png.js'),
-    gulp_htmlizr  = require('./tasks/gulp-htmlizr.js');
+var gulp              = require('gulp'),
+    gulp_util         = require('gulp-util'),
+    gulp_rename       = require('gulp-rename'),
+    gulp_uglify       = require('gulp-uglify'),
+    gulp_svgmin       = require('gulp-svgmin'),
+    gulp_sass         = require('gulp-sass'),
+    // gulp_sass         = require('gulp-compass'),
+    gulp_imagemin     = require('gulp-imagemin'),
+    gulp_autoprefixer = require('gulp-autoprefixer'),
+    gulp_svg2png      = require('./tasks/gulp-svg2png.js'),
+    gulp_htmlizr      = require('./tasks/gulp-htmlizr.js');
 
 // global vars
 
@@ -65,16 +67,25 @@ gulp.task('img-min', ['img-copy', 'svg-2png'], function()
 
 gulp.task('css', ['img-min'], function()
 {
-    return gulp.src('src/**/*.scss')
+    return gulp.src('src/scss/**/*.scss')
         .pipe(gulp_sass({
-            css      : buildDir + '/assets/css',
-            sass     : 'src/scss',
-            image    : 'src/img',
-            fonts    : 'src/fonts',
-            style    : 'compressed',
-            comments : true
-        }));
-        // .pipe(gulp.dest(buildDir + '/assets/css'));
+            precision   : 10,
+            outputStyle : 'compressed'
+        }))
+        .pipe(gulp_autoprefixer())
+        .pipe(gulp.dest(buildDir + '/assets/css'));
+
+    // Compass
+
+    // return gulp.src('src/**/*.scss')
+    //     .pipe(gulp_sass({
+    //         css      : buildDir + '/assets/css',
+    //         sass     : 'src/scss',
+    //         image    : 'src/img',
+    //         fonts    : 'src/fonts',
+    //         style    : 'compressed',
+    //         comments : true
+    //     }));
 });
 
 gulp.task('html', function()
