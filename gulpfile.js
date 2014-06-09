@@ -70,7 +70,7 @@ gulp.task('css', ['img-min'], function()
     return gulp.src('src/scss/**/*.scss')
         .pipe(gulp_sass({
             precision   : 10,
-            outputStyle : 'compressed'
+            outputStyle : 'compact' // nested, compact, compressed, expanded
         }))
         .pipe(gulp_autoprefixer())
         .pipe(gulp.dest(buildDir + '/assets/css'));
