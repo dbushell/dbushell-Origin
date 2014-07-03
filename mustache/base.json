@@ -1,0 +1,8 @@
+{
+    "nav__list": {
+        "nav__item": [
+            { "name": "Home", "url": "index.html" },
+            { "name": "Origin", "url": "origin/index.html" }
+        ]
+    }
+}

@@ -30,6 +30,7 @@
     "gulp-svgmin": "^0.4.6",
     "gulp-uglify": "^0.3.0",
     "gulp-util": "^2.2.16",
+    "hogan.js": "^3.0.2",
     "phantomjs": "^1.9.7-8",
     "through2": "^0.5.1"
   },

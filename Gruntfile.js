@@ -93,6 +93,20 @@ module.exports = function(grunt)
             }
         },
 
+        dbushell_htmlizr: {
+            options: {
+                src: 'mustache',
+                dist: 'build'
+            },
+            prod: {
+                globals: {
+                    site_owner : 'David Bushell',
+                    site_url   : 'http://dbushell.com/',
+                    assets     : 'assets/'
+                }
+            }
+        },
+
         sass: {
             prod: {
                 options: {
