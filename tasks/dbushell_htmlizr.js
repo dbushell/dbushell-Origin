@@ -47,6 +47,9 @@ module.exports = function(grunt)
 
         var globals = this.data.globals || {};
 
+        globals.ROOT = '';
+        globals.ASSETS = 'assets/';
+
         if (grunt.file.exists(baseData)) {
             globals = merge(globals, JSON.parse(grunt.file.read(baseData)));
         }
@@ -93,10 +96,15 @@ module.exports = function(grunt)
                     locals = merge(locals, data);
                 }
 
+                var depth = (name.match(/\//g)||[]).length;
+                while(depth--) {
+                    locals.ROOT += '../';
+                }
+                locals.ASSETS = locals.ROOT + locals.ASSETS;
+
                 templateData[name] = locals;
 
-                // templates[name] = template.render(locals, partials);
-                templates[name] = template;
+                templates[name] = template; // template.render(locals, partials);
             });
 
             return templates;
