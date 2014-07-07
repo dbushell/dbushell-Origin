@@ -36,7 +36,9 @@ module.exports = function(grunt)
 
         var options = this.options({
             src  : 'src',
-            dist : 'dist'
+            dist : 'dist',
+            navStates : true,
+            relLinks  : true
         });
 
         var matcher = new RegExp('\\' + '.html' + '$');
@@ -58,75 +60,34 @@ module.exports = function(grunt)
             partials = compile(options.src + '/partials'),
             pages    = compile(options.src + '/pages', partials);
 
-        var pre_render  = [ ],
-            post_render = [ ];
+        var pre  = [ ],
+            post = [ ];
 
-        pre_render.push(function(page, name, locals)
-        {
-            // toggle active navigation items
-            if (locals.nav) {
-                each(locals.nav.nav__list.nav__item, function(item) {
-                    item.class = item.url === data[name].url ? "nav__item--active" : "";
-                });
-            }
-        });
+        if (options.navStates) pre.push(preNavStates);
+        if (options.relLinks)  post.push(postRelLinks);
 
-        post_render.push(function(render, name, locals)
-        {
-            // prefix for relative URLs
-            var rel = '',
-                depth = (name.match(/\//g)||[]).length;
-
-            while(depth--) { rel += '../'; }
-
-            if (!rel.length) return render;
-
-            var head, tail, match, offset, found = [],
-                regex = /(href|src)="(.*?)"/ig;
-
-            while((match = regex.exec(render)) !== null) {
-                // ignore external URLs that start with a schema
-                if (! /^([a-z]+):/.test(match[2])) {
-                    found.push(match);
-                }
-            }
-
-            // replace relative URLs in reverse to avoid offset changes
-            found.reverse().forEach(function(match, i)
-            {
-                // separate render before and after URL
-                offset = match.index + match[1].length + 2;
-                head = render.substring(0, offset);
-                tail = render.substring(offset + match[2].length);
-
-                // stitch render back together
-                render = head + rel + match[2] + tail;
-            });
-
-            return render;
-        });
-
+        // render each page
         each(pages, function(page, name)
         {
-            partials.content = page;
-
             var locals = data[name];
 
             // pre-render callbacks
-            pre_render.forEach(function(func) {
+            pre.forEach(function(func) {
                 func.call(null, page, name, locals);
             });
 
             // render HTML
+            partials.content = page;
             var render = base.render(locals, partials);
 
             // post-render callbacks
-            post_render.forEach(function(func) {
+            post.forEach(function(func) {
                 render = func.call(null, render, name, locals);
             });
 
             // write file to disk
             grunt.file.write(options.dist + '/' + name + '.html', render);
+
         });
 
         function compile(path, partials)
@@ -152,6 +113,53 @@ module.exports = function(grunt)
             });
 
             return templates;
+        }
+
+        // toggle active navigation items
+        function preNavStates(page, name, locals)
+        {
+            if (locals.nav) {
+                each(locals.nav.nav__list.nav__item, function(item) {
+                    item.class = item.url === data[name].url ? "nav__item--active" : "";
+                });
+            }
+        }
+
+        // convert relative URLs for local href and src references
+        function postRelLinks(render, name, locals)
+        {
+            // prefix for relative URLs
+            var rel = '',
+                depth = (name.match(/\//g)||[]).length;
+
+            while(depth--) { rel += '../'; }
+
+            if (!rel.length) return render;
+
+            var head, tail, match, offset, found = [],
+                regex = /(href|src)="(.*?)"/ig;
+
+            while((match = regex.exec(render)) !== null) {
+                // ignore external URLs that start with a schema or fragment
+                if (match[2][0] === '#') continue;
+                if (! /^([a-z]+):/.test(match[2])) {
+                    found.push(match);
+                }
+            }
+
+            // replace relative URLs in reverse to avoid offset changes
+            found.reverse().forEach(function(match, i)
+            {
+                // separate render before and after URL
+                offset = match.index + match[1].length + 2;
+                head = render.substring(0, offset);
+                tail = render.substring(offset + match[2].length);
+
+                // stitch render back together
+                render = head + rel + match[2] + tail;
+            });
+
+            return render;
         }
 
     });
