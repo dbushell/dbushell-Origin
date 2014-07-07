@@ -2,14 +2,14 @@
   "name": "dbushell-Origin",
   "description": "My HTML5, CSS, and JavaScript starting point for front-end development with automated build tasks.",
   "author": "David Bushell <david@dbushell.com>",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/dbushell/dbushell-Origin.git"
   },
   "dependencies": {
-    "connect": "^2.19.4",
+    "connect": "^2.22.0",
     "grunt": "^0.4.5",
     "grunt-autoprefixer": "^0.7.6",
     "grunt-contrib-copy": "^0.5.0",
@@ -18,20 +18,10 @@
     "grunt-contrib-uglify": "^0.4.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-imageoptim": "^1.4.1",
-    "grunt-sass": "^0.13.0",
+    "grunt-sass": "^0.13.1",
     "grunt-svg2png": "^0.2.3",
     "grunt-svgmin": "^0.4.0",
-    "gulp": "^3.7.0",
-    "gulp-autoprefixer": "0.0.7",
-    "gulp-compass": "^1.1.9",
-    "gulp-imagemin": "^0.6.0",
-    "gulp-rename": "^1.2.0",
-    "gulp-sass": "^0.7.2",
-    "gulp-svgmin": "^0.4.6",
-    "gulp-uglify": "^0.3.0",
-    "gulp-util": "^2.2.16",
-    "phantomjs": "^1.9.7-8",
-    "through2": "^0.5.1"
+    "hogan.js": "^3.0.2"
   },
   "engine": "node >= 0.10.x"
 }

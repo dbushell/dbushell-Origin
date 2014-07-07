@@ -1,11 +1,11 @@
-<!-- @include _header.html -->
+{{>header}}
 
 <main role="main" id="main">
 
     <div class="block block--origin">
         <div class="prose">
             <h1 class="block__title">Hello, world!</h1>
-            <p class="p--large"><strong>Welcome to Origin, my starting point for front-end development.</strong> Origin is one part automated build tasks and one part <a href="<!-- @path origin/index.html -->">baseline style guide</a> for <abbr title="HyperText Markup Language">HTML</abbr>, <abbr title="Cascading Style Sheets">CSS</abbr>, and JavaScript.</p>
+            <p class="p--large"><strong>Welcome to Origin, my starting point for front-end development.</strong> Origin is one part automated build tasks and one part <a href="origin/index.html">baseline style guide</a> for <abbr title="HyperText Markup Language">HTML</abbr>, <abbr title="Cascading Style Sheets">CSS</abbr>, and JavaScript.</p>
             <h2>About this project</h2>
             <p>Like the Web itself this project is forever a <em>work in progress</em>. I’ve decided to make Origin public for those interested. <strong>Origin it not a final solution, framework, or boilerplate I expect others to use “as is”.</strong> From time to time it will include experimental and far from optimal build tasks. You may prefer a less bespoke workflow like <a href="http://yeoman.io/" target="_blank">Yeoman</a> or a CSS framework like <a href="https://github.com/csswizardry/inuit.css" target="_blank">Inuit.css</a> without my preferences.</p>
             <p><a href="http://dbushell.com/2013/04/30/origin/" target="_blank"><strong>Learn more about Origin</strong></a></p>
@@ -13,7 +13,7 @@
             <h3>Getting started reminder…</h3>
             <br>
             <ol>
-                <li>Prerequisites: Git, Node, <a href="http://phantomjs.org/" target="_blank">Phantom.js</a>, <a href="http://compass-style.org/" target="_blank">Compass</a>, <a href="http://imageoptim.com/" target="_blank">ImageOptim</a> and <a href="https://github.com/JamieMason/ImageOptim-CLI" target="_blank">ImageOptim CLI</a>
+                <li>Prerequisites: Git, Node, <a href="http://phantomjs.org/" target="_blank">Phantom.js</a>, <del>Compass</del>, <a href="http://imageoptim.com/" target="_blank">ImageOptim</a> and <a href="https://github.com/JamieMason/ImageOptim-CLI" target="_blank">ImageOptim CLI</a>
                 <li>Create a new project repo with <code>git init</code>
                 <li>Add default remote if required (see: <a href="https://help.github.com/articles/create-a-repo" target="_blank">GitHub Help &mdash; Create A Repo</a> for example)
                 <li>Add and fetch <strong>Origin</strong> as a remote repository:
@@ -29,4 +29,4 @@
 
 </main>
 
-<!-- @include _footer.html -->
+{{>footer}}

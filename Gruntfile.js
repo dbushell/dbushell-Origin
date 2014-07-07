@@ -24,7 +24,7 @@ module.exports = function(grunt)
         'jshint',
 
         // start new build
-        'htmlizr:prod',
+        'htmlizr2:prod',
 
         // compile Sass to ./build/assets/css/
         'sass:prod',
@@ -73,7 +73,7 @@ module.exports = function(grunt)
 
             html: {
                 files: 'templates/**/*.html',
-                tasks: ['htmlizr:prod'],
+                tasks: ['htmlizr2:prod'],
                 options: {
                   interrupt: true
                 }
@@ -84,12 +84,26 @@ module.exports = function(grunt)
             all: ['Gruntfile.js', 'tasks/**/*.js']
         },
 
-        htmlizr: {
+        // htmlizr: {
+        //     prod: {
+        //         buildDir: 'build',
+        //         assetsDir: 'assets',
+        //         templateDir: 'templates',
+        //         src: ['templates/**/*.html']
+        //     }
+        // },
+
+        htmlizr2: {
+            options: {
+                src: 'templates',
+                dist: 'build'
+            },
             prod: {
-                buildDir: 'build',
-                assetsDir: 'assets',
-                templateDir: 'templates',
-                src: ['templates/**/*.html']
+                globals: {
+                    site_owner : 'David Bushell',
+                    site_url   : 'http://dbushell.com/',
+                    assets     : 'assets/'
+                }
             }
         },
 

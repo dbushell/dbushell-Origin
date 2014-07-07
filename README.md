@@ -1,10 +1,15 @@
 # Origin
 
-My HTML5, CSS, and JavaScript starting point for front-end development with automated build tasks.
+> My HTML5, CSS, and JavaScript starting point for front-end development with automated build tasks.
 
-Includes both Grunt and Gulp build tasks (need to decide in future).
+Includes both Grunt and [Gulp](https://github.com/dbushell/dbushell-Origin/tree/feature/gulp) build tasks (need to decide in future).
 
 [View Origin on GitHub pages →](http://dbushell.github.io/dbushell-Origin/)
+
+## Updates
+
+* **2014-07-07** replaced `htmlizr` with `htmlizr2` based on [Mustache](http://mustache.github.io/) / [Hogan](http://twitter.github.io/hogan.js/)
+* **2014-07-07** moved [Gulp](https://github.com/dbushell/dbushell-Origin/tree/feature/gulp) tasks to feature branch (no plans to maintain)
 
 [Learn more about this project →](http://dbushell.com/2013/04/30/origin/)
 

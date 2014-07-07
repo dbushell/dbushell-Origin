@@ -1,4 +1,4 @@
-<!-- @include _header.html -->
+{{>header}}
 
 <style>
 /**
@@ -67,27 +67,27 @@
     </section>
 
     <section class="block block--origin" id="block-typography">
-<!-- @include origin/_typography.html -->
+{{>origin/typography}}
     </section>
     <!--/#block-typography-->
 
     <section class="block block--origin" id="block-forms">
-<!-- @include origin/_forms.html -->
+{{>origin/forms}}
     </section>
     <!--/#block-forms-->
 
     <section class="block block--origin" id="block-grids">
-<!-- @include origin/_grids.html -->
+{{>origin/grids}}
     </section>
     <!--/#block-grids-->
 
     <section class="block block--origin" id="block-layouts">
-<!-- @include origin/_layouts.html -->
+{{>origin/layouts}}
     </section>
     <!--/#block-layouts-->
 
     <section class="block block--origin" id="block-tables">
-<!-- @include origin/_tables.html -->
+{{>origin/tables}}
     </section>
     <!--/#block-tables-->
 
@@ -106,4 +106,4 @@ Prism.languages.clike={comment:{pattern:/(^|[^\\])(\/\*[\w\W]*?\*\/|[^:]\/\/.*?(
 Prism.languages.javascript=Prism.languages.extend("clike",{keyword:/\b(var|let|if|else|while|do|for|return|in|instanceof|function|new|with|typeof|try|catch|finally|null|break|continue)\b/g,number:/\b(-?(0x)?\d*\.?[\da-f]+|NaN|-?Infinity)\b/g});Prism.languages.insertBefore("javascript","keyword",{regex:{pattern:/(^|[^/])\/(?!\/)(\[.+?]|\\.|[^/\r\n])+\/[gim]{0,3}(?=\s*($|[\r\n,.;})]))/g,lookbehind:!0}});Prism.languages.markup&&Prism.languages.insertBefore("markup","tag",{script:{pattern:/(&lt;|<)script[\w\W]*?(>|&gt;)[\w\W]*?(&lt;|<)\/script(>|&gt;)/ig,inside:{tag:{pattern:/(&lt;|<)script[\w\W]*?(>|&gt;)|(&lt;|<)\/script(>|&gt;)/ig,inside:Prism.languages.markup.tag.inside},rest:Prism.languages.javascript}}});;
 </script>
 
-<!-- @include _footer.html -->
+{{>footer}}
