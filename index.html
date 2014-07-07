@@ -6,13 +6,13 @@
     <meta charset="utf-8">
     <!--
 
-    Copyright © David Bushell | @dbushell | http://dbushell.com/
+    Copyright © David Bushell | http://dbushell.com/
 
     -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
 
-    <title>index.html</title>
+    <title>dbushell-Origin: Hello, world!</title>
 
     <!--[if (gt IE 8) | (IEMobile)]><!-->
     <link rel="stylesheet" href="assets/css/style.css">
@@ -36,19 +36,26 @@
 </head>
 <body>
 
+
 <header class="header" role="banner">
     <div class="block">
         <h1 class="block__title">Origin</h1>
 
-    <nav class="nav" role="navigation">
+
+    <nav class="nav" id="nav" role="navigation">
         <h2 class="nav__title">Site navigation</h2>
-        <a href="index.html">Home</a>
-        <a href="origin/index.html">Origin (alpha)</a>
+        <ul class="nav__list">
+            <li class="nav__item nav__item--active">
+                <a class="nav__link" href="index.html">Home</a>
+            </li>
+            <li class="nav__item ">
+                <a class="nav__link" href="origin/index.html">Origin</a>
+            </li>
+        </ul>
     </nav>
 
     </div>
 </header>
-
 
 <main role="main" id="main">
 
@@ -63,7 +70,7 @@
             <h3>Getting started reminder…</h3>
             <br>
             <ol>
-                <li>Prerequisites: Git, Node, <a href="http://phantomjs.org/" target="_blank">Phantom.js</a>, <a href="http://compass-style.org/" target="_blank">Compass</a>, <a href="http://imageoptim.com/" target="_blank">ImageOptim</a> and <a href="https://github.com/JamieMason/ImageOptim-CLI" target="_blank">ImageOptim CLI</a>
+                <li>Prerequisites: Git, Node, <a href="http://phantomjs.org/" target="_blank">Phantom.js</a>, <del>Compass</del>, <a href="http://imageoptim.com/" target="_blank">ImageOptim</a> and <a href="https://github.com/JamieMason/ImageOptim-CLI" target="_blank">ImageOptim CLI</a>
                 <li>Create a new project repo with <code>git init</code>
                 <li>Add default remote if required (see: <a href="https://help.github.com/articles/create-a-repo" target="_blank">GitHub Help &mdash; Create A Repo</a> for example)
                 <li>Add and fetch <strong>Origin</strong> as a remote repository:
@@ -82,7 +89,7 @@
 
 <footer class="footer" role="contentinfo">
     <div class="block">
-        <p><small>Copyright © David Bushell | <a href="http://twitter.com/dbushell/" target="_blank">@dbushell</a> | <a href="http://dbushell.com/" target="_blank">http://dbushell.com/</a></small></p>
+        <p><small>Copyright &copy; David Bushell | <a href="http://twitter.com/dbushell/" target="_blank">@dbushell</a> | <a href="http://dbushell.com/" target="_blank">http://dbushell.com/</a></small></p>
         <hr>
     </div>
 </footer>
@@ -101,6 +108,6 @@ $(document).ready(function()
 });
 
 </script>
+
 </body>
 </html>
-

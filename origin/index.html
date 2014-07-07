@@ -6,13 +6,13 @@
     <meta charset="utf-8">
     <!--
 
-    Copyright © David Bushell | @dbushell | http://dbushell.com/
+    Copyright © David Bushell | http://dbushell.com/
 
     -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
 
-    <title>index.html</title>
+    <title>dbushell-Origin: HTML, CSS, and JavaScript</title>
 
     <!--[if (gt IE 8) | (IEMobile)]><!-->
     <link rel="stylesheet" href="../assets/css/style.css">
@@ -26,7 +26,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicon.ico">
 
     <!--
-    <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
     <meta name="msapplication-TileImage" content="assets/img/ms-tile.png">
     <meta name="msapplication-TileColor" content="#ad52cc">
     <meta property="og:title" content="Website">
@@ -36,19 +36,26 @@
 </head>
 <body>
 
+
 <header class="header" role="banner">
     <div class="block">
         <h1 class="block__title">Origin</h1>
 
-    <nav class="nav" role="navigation">
+
+    <nav class="nav" id="nav" role="navigation">
         <h2 class="nav__title">Site navigation</h2>
-        <a href="../index.html">Home</a>
-        <a href="index.html">Origin (alpha)</a>
+        <ul class="nav__list">
+            <li class="nav__item ">
+                <a class="nav__link" href="../index.html">Home</a>
+            </li>
+            <li class="nav__item nav__item--active">
+                <a class="nav__link" href="../origin/index.html">Origin</a>
+            </li>
+        </ul>
     </nav>
 
     </div>
 </header>
-
 
 <style>
 /**
@@ -120,7 +127,7 @@
 
         <h2>Typography</h2>
 
-        <p>General typographic styles are either scoped with <code>.prose</code> or applied with individual classes like <code>.h1</code> or <code>.p--small</code>. This practice stops style leaking into unexpected areas. See my article <a href="http://dbushell.com/2012/04/18/scoping-typography-css/" target="_blank">Scoping Typography CSS</a>.</p>
+        <p>General typographic styles are global, while others are scoped with <code>.prose</code>, or applied with individual classes like <code>.h1</code> or <code>.p--small</code>. This practice stops style leaking into unexpected areas. See my article <a href="http://dbushell.com/2012/04/18/scoping-typography-css/" target="_blank">Scoping Typography CSS</a>.</p>
 
         <h1>This is the primary headline</h1>
         <h2>This is a secondary headline</h2>
@@ -164,7 +171,6 @@
                 <p class="p--small"><cite>David Bushell</cite></p>
             </blockquote>
         </div>
-
     </section>
     <!--/#block-typography-->
 
@@ -208,37 +214,17 @@
         <a href="#" class="button">Anchor</a>
         <a href="#" class="button button--link">Link</a>
 
-        <pre class="block__code"><code class="language-markup">&lt;input type=&quot;submit&quot; class=&quot;button&quot; value=&quot;Submit&quot;&gt;
+
+<pre class="block__code"><code class="language-markup">&lt;input type=&quot;submit&quot; class=&quot;button&quot; value=&quot;Submit&quot;&gt;
 &lt;button type=&quot;button&quot; class=&quot;button&quot;&gt;Button&lt;/button&gt;
 &lt;a href=&quot;#&quot; class=&quot;button&quot;&gt;Anchor&lt;/a&gt;
 &lt;a href=&quot;#&quot; class=&quot;button button--link&quot;&gt;Link&lt;/a&gt;</code></pre>
-
 
         <button type="button" class="button button--large">Large Button</button>
         <p class="p"><code>.button--large</code></p>
         <button type="button" class="button button--small">Small Button</button>
         <p class="p"><code>.button--small</code></p>
 
-<!--
-        <hr>
-
-        <h2 class="h2">Switches</h2>
-        <p class="p">If CSS <code>:checked</code> selector is not supported these are normal inline checkboxes.</p>
-
-        <label class="label--checkbox">
-            <input class="switch" type="checkbox"> <span>Option label</span>
-        </label>
-        <br>
-        <label class="label--checkbox">
-            <input class="switch" type="checkbox" checked> <span>Option label</span>
-        </label>
-
-        <pre class="block__code"><code class="language-markup">&lt;label class=&quot;label--checkbox&quot;&gt;
-    &lt;input class=&quot;switch&quot; type=&quot;checkbox&quot; checked&gt; &lt;span&gt;Option label&lt;/span&gt;
-&lt;/label&gt;</code></pre>
-
-
--->
 
         <hr>
 
@@ -284,7 +270,8 @@
             </ul>
         </form>
 
-        <pre class="block__code"><code class="language-markup">&lt;form class=&quot;form form--inline&quot; id=&quot;form-login&quot;&gt;
+
+<pre class="block__code"><code class="language-markup">&lt;form class=&quot;form form--inline&quot; id=&quot;form-login&quot;&gt;
     &lt;ul class=&quot;form__list&quot;&gt;
         &lt;li class=&quot;form__item&quot;&gt;
             &lt;label for=&quot;form-login__username&quot;&gt;Username&lt;/label&gt;
@@ -300,7 +287,6 @@
     &lt;/ul&gt;
 &lt;/form&gt;</code></pre>
 
-
         <h2>Single Form <small>(full-width)</small></h2>
 
         <form class="form form--single" id="form-search">
@@ -315,7 +301,8 @@
             </ul>
         </form>
 
-        <pre class="block__code"><code class="language-markup">&lt;form class=&quot;form form--single&quot; id=&quot;form-search&quot;&gt;
+
+<pre class="block__code"><code class="language-markup">&lt;form class=&quot;form form--single&quot; id=&quot;form-search&quot;&gt;
     &lt;ul class=&quot;form__list&quot;&gt;
         &lt;li class=&quot;form__item&quot;&gt;
             &lt;label for=&quot;form-search__query&quot;&gt;Query&lt;/label&gt;
@@ -326,8 +313,6 @@
         &lt;/li&gt;
     &lt;/ul&gt;
 &lt;/form&gt;</code></pre>
-
-
     </section>
     <!--/#block-forms-->
 
@@ -366,7 +351,6 @@
 &lt;/div&gt;</code></pre>
 
         <p class="p">Columns are sized with percentage widths. This is content and design specific and not pre-defined with classes.</p>
-
     </section>
     <!--/#block-grids-->
 
@@ -407,7 +391,6 @@
         </ul>
 
 -->
-
     </section>
     <!--/#block-layouts-->
 
@@ -643,7 +626,6 @@
             </table>
         </div>
 -->
-
     </section>
     <!--/#block-tables-->
 
@@ -665,7 +647,7 @@ Prism.languages.javascript=Prism.languages.extend("clike",{keyword:/\b(var|let|i
 
 <footer class="footer" role="contentinfo">
     <div class="block">
-        <p><small>Copyright © David Bushell | <a href="http://twitter.com/dbushell/" target="_blank">@dbushell</a> | <a href="http://dbushell.com/" target="_blank">http://dbushell.com/</a></small></p>
+        <p><small>Copyright &copy; David Bushell | <a href="http://twitter.com/dbushell/" target="_blank">@dbushell</a> | <a href="http://dbushell.com/" target="_blank">http://dbushell.com/</a></small></p>
         <hr>
     </div>
 </footer>
@@ -684,6 +666,6 @@ $(document).ready(function()
 });
 
 </script>
+
 </body>
 </html>
-
