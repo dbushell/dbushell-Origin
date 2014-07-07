@@ -3,6 +3,9 @@
  *  Copyright (c) David Bushell | @dbushell | http://dbushell.com/
  *
  *  based on: https://github.com/haio/grunt-mustache-html/blob/master/tasks/mustache_html.js
+ *  Hogan: https://github.com/twitter/hogan.js
+ *  Jekyll: http://jekyllrb.com/docs/templates/
+ *  Handlebars: http://handlebarsjs.com/
  *
  */
 
@@ -47,7 +50,6 @@ module.exports = function(grunt)
 
         var globals = this.data.globals || {};
 
-        globals.ROOT = '';
         globals.ASSETS = 'assets/';
 
         if (grunt.file.exists(baseData)) {
@@ -59,8 +61,8 @@ module.exports = function(grunt)
             partDir  = options.src + '/partials',
             pageDir  = options.src + '/pages',
 
-            partials = render(partDir),
-            pages    = render(pageDir, partials);
+            partials = compile(partDir),
+            pages    = compile(pageDir, partials);
 
 
         // console.log(partials['header'].render(globals, partials));
@@ -68,11 +70,44 @@ module.exports = function(grunt)
         each(pages, function(page, name)
         {
             partials.content = page;
-            page = base.render(templateData[name], partials);
-            grunt.file.write(options.dist + '/' + name + '.html', page);
+            var render = base.render(templateData[name], partials);
+
+            // prefix for relative URLs
+            var rel = '', depth = (name.match(/\//g)||[]).length;
+            while(depth--) {
+                rel += '../';
+            }
+
+            if (rel.length) {
+
+                var head, tail, match, offset, found = [],
+                    regex = /(href|src)="(.*?)"/ig;
+
+                while((match = regex.exec(render)) !== null) {
+                    // ignore external URLs that start with a schema
+                    if (! /^([a-z]+):/.test(match[2])) {
+                        found.push(match);
+                    }
+                }
+
+                // replace relative URLs in reverse to avoid offset changes
+                found.reverse().forEach(function(match, i)
+                {
+                    // separate render before and after URL
+                    offset = match.index + match[1].length + 2;
+                    head = render.substring(0, offset);
+                    tail = render.substring(offset + match[2].length);
+
+                    // stitch render back together
+                    render = head + rel + match[2] + tail;
+                });
+            }
+
+
+            grunt.file.write(options.dist + '/' + name + '.html', render);
         });
 
-        function render(path, partials)
+        function compile(path, partials)
         {
             var templates = {};
 
@@ -86,8 +121,6 @@ module.exports = function(grunt)
                     locals   = merge({}, globals),
                     data     = {};
 
-                // if (!partials) name = '_' + name;
-
                 var templateSrc = grunt.file.read(absPath),
                     template    = hogan.compile(templateSrc);
 
@@ -96,14 +129,7 @@ module.exports = function(grunt)
                     locals = merge(locals, data);
                 }
 
-                var depth = (name.match(/\//g)||[]).length;
-                while(depth--) {
-                    locals.ROOT += '../';
-                }
-                locals.ASSETS = locals.ROOT + locals.ASSETS;
-
                 templateData[name] = locals;
-
                 templates[name] = template; // template.render(locals, partials);
             });
 
