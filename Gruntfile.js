@@ -16,8 +16,6 @@ module.exports = function(grunt)
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-autoprefixer');
 
-    grunt.registerTask('css', ['sass:prod', 'autoprefixer']);
-
     // build order
     grunt.registerTask('default',
     [
@@ -47,6 +45,8 @@ module.exports = function(grunt)
 
     ]);
 
+    grunt.registerTask('html', ['htmlizr2:prod']);
+    grunt.registerTask('css', ['sass:prod', 'autoprefixer']);
     grunt.registerTask('server', [/*'default',*/ 'webserver']);
 
     grunt.initConfig({
