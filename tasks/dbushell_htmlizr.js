@@ -4,8 +4,6 @@
  *
  *  based on: https://github.com/haio/grunt-mustache-html/blob/master/tasks/mustache_html.js
  *  Hogan: https://github.com/twitter/hogan.js
- *  Jekyll: http://jekyllrb.com/docs/templates/
- *  Handlebars: http://handlebarsjs.com/
  *
  */
 
@@ -45,7 +43,7 @@ module.exports = function(grunt)
 
         var basePath = options.src + '/base.html',
             baseData = basePath.replace(matcher, '.json'),
-            base    = hogan.compile(grunt.file.read(basePath)); // , { sectionTags: [{o:'_i', c:'i'}] }
+            base    = hogan.compile(grunt.file.read(basePath));
 
         var globals = merge({
                 'assets': 'assets/'
