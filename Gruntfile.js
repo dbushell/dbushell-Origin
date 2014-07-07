@@ -16,15 +16,13 @@ module.exports = function(grunt)
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-autoprefixer');
 
-    grunt.registerTask('css', ['sass:prod', 'autoprefixer']);
-
     // build order
     grunt.registerTask('default',
     [
         'jshint',
 
         // start new build
-        'htmlizr:prod',
+        'htmlizr2:prod',
 
         // compile Sass to ./build/assets/css/
         'sass:prod',
@@ -47,6 +45,8 @@ module.exports = function(grunt)
 
     ]);
 
+    grunt.registerTask('html', ['htmlizr2:prod']);
+    grunt.registerTask('css', ['sass:prod', 'autoprefixer']);
     grunt.registerTask('server', [/*'default',*/ 'webserver']);
 
     grunt.initConfig({
@@ -73,7 +73,7 @@ module.exports = function(grunt)
 
             html: {
                 files: 'templates/**/*.html',
-                tasks: ['htmlizr:prod'],
+                tasks: ['htmlizr2:prod'],
                 options: {
                   interrupt: true
                 }
@@ -84,19 +84,33 @@ module.exports = function(grunt)
             all: ['Gruntfile.js', 'tasks/**/*.js']
         },
 
-        htmlizr: {
+        // htmlizr: {
+        //     prod: {
+        //         buildDir: 'build',
+        //         assetsDir: 'assets',
+        //         templateDir: 'templates',
+        //         src: ['templates/**/*.html']
+        //     }
+        // },
+
+        htmlizr2: {
+            options: {
+                src: 'templates',
+                dist: 'build'
+            },
             prod: {
-                buildDir: 'build',
-                assetsDir: 'assets',
-                templateDir: 'templates',
-                src: ['templates/**/*.html']
+                globals: {
+                    site_owner : 'David Bushell',
+                    site_url   : 'http://dbushell.com/',
+                    assets     : 'assets/'
+                }
             }
         },
 
         sass: {
             prod: {
                 options: {
-                    style: 'compressed' // nested, compact, compressed, expanded
+                    style: 'compact' // nested, compact, compressed, expanded
                 },
                 files: [{
                     expand: true,
@@ -153,7 +167,7 @@ module.exports = function(grunt)
         svg2png: {
             prod: {
                 files: [
-                    { src: ['build/assets/img/**/*.svg'] }
+                    { cwd: 'build/assets/img/', src: ['**/*.svg'], dest: 'build/assets/img/' }
                 ]
             }
         },

@@ -37,29 +37,13 @@
         <a href="#" class="button">Anchor</a>
         <a href="#" class="button button--link">Link</a>
 
-        <!-- @include origin/code/_buttons.html -->
+{{>origin/code/buttons}}
 
         <button type="button" class="button button--large">Large Button</button>
         <p class="p"><code>.button--large</code></p>
         <button type="button" class="button button--small">Small Button</button>
         <p class="p"><code>.button--small</code></p>
 
-<!--
-        <hr>
-
-        <h2 class="h2">Switches</h2>
-        <p class="p">If CSS <code>:checked</code> selector is not supported these are normal inline checkboxes.</p>
-
-        <label class="label--checkbox">
-            <input class="switch" type="checkbox"> <span>Option label</span>
-        </label>
-        <br>
-        <label class="label--checkbox">
-            <input class="switch" type="checkbox" checked> <span>Option label</span>
-        </label>
-
-        <!-- @include origin/code/_switches.html -->
--->
 
         <hr>
 
@@ -105,7 +89,7 @@
             </ul>
         </form>
 
-        <!-- @include origin/code/_form-inline.html -->
+{{>origin/code/form-inline}}
 
         <h2>Single Form <small>(full-width)</small></h2>
 
@@ -121,4 +105,4 @@
             </ul>
         </form>
 
-        <!-- @include origin/code/_form-single.html -->
+{{>origin/code/form-single}}
