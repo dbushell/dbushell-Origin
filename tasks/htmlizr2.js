@@ -31,7 +31,7 @@ module.exports = function(grunt)
         return obj;
     }
 
-    grunt.registerMultiTask('dbushell_htmlizr', 'Compile HTML with Hogan / Mustache templates.', function()
+    grunt.registerMultiTask('htmlizr2', 'Compile HTML with Hogan / Mustache templates.', function()
     {
 
         var options = this.options({

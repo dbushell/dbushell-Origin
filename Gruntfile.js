@@ -24,7 +24,7 @@ module.exports = function(grunt)
         'jshint',
 
         // start new build
-        'htmlizr:prod',
+        'htmlizr2:prod',
 
         // compile Sass to ./build/assets/css/
         'sass:prod',
@@ -73,7 +73,7 @@ module.exports = function(grunt)
 
             html: {
                 files: 'templates/**/*.html',
-                tasks: ['htmlizr:prod'],
+                tasks: ['htmlizr2:prod'],
                 options: {
                   interrupt: true
                 }
@@ -84,18 +84,18 @@ module.exports = function(grunt)
             all: ['Gruntfile.js', 'tasks/**/*.js']
         },
 
-        htmlizr: {
-            prod: {
-                buildDir: 'build',
-                assetsDir: 'assets',
-                templateDir: 'templates',
-                src: ['templates/**/*.html']
-            }
-        },
+        // htmlizr: {
+        //     prod: {
+        //         buildDir: 'build',
+        //         assetsDir: 'assets',
+        //         templateDir: 'templates',
+        //         src: ['templates/**/*.html']
+        //     }
+        // },
 
-        dbushell_htmlizr: {
+        htmlizr2: {
             options: {
-                src: 'mustache',
+                src: 'templates',
                 dist: 'build'
             },
             prod: {
