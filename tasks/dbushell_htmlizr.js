@@ -45,92 +45,112 @@ module.exports = function(grunt)
 
         var basePath = options.src + '/base.html',
             baseData = basePath.replace(matcher, '.json'),
-            baseSrc = grunt.file.read(basePath),
-            base    = hogan.compile(baseSrc); // , { sectionTags: [{o:'_i', c:'i'}] }
+            base    = hogan.compile(grunt.file.read(basePath)); // , { sectionTags: [{o:'_i', c:'i'}] }
 
-        var globals = this.data.globals || {};
-
-        globals.ASSETS = 'assets/';
+        var globals = merge({
+                'assets': 'assets/'
+            },
+            this.data.globals);
 
         if (grunt.file.exists(baseData)) {
             globals = merge(globals, JSON.parse(grunt.file.read(baseData)));
         }
 
-        var templateData = {},
+        var data     = { },
+            partials = compile(options.src + '/partials'),
+            pages    = compile(options.src + '/pages', partials);
 
-            partDir  = options.src + '/partials',
-            pageDir  = options.src + '/pages',
+        var pre_render  = [ ],
+            post_render = [ ];
 
-            partials = compile(partDir),
-            pages    = compile(pageDir, partials);
+        pre_render.push(function(page, name, locals)
+        {
+            // toggle active navigation items
+            if (locals.nav) {
+                each(locals.nav.nav__list.nav__item, function(item) {
+                    item.class = item.url === data[name].url ? "nav__item--active" : "";
+                });
+            }
+        });
 
+        post_render.push(function(render, name, locals)
+        {
+            // prefix for relative URLs
+            var rel = '',
+                depth = (name.match(/\//g)||[]).length;
 
-        // console.log(partials['header'].render(globals, partials));
+            while(depth--) { rel += '../'; }
+
+            if (!rel.length) return render;
+
+            var head, tail, match, offset, found = [],
+                regex = /(href|src)="(.*?)"/ig;
+
+            while((match = regex.exec(render)) !== null) {
+                // ignore external URLs that start with a schema
+                if (! /^([a-z]+):/.test(match[2])) {
+                    found.push(match);
+                }
+            }
+
+            // replace relative URLs in reverse to avoid offset changes
+            found.reverse().forEach(function(match, i)
+            {
+                // separate render before and after URL
+                offset = match.index + match[1].length + 2;
+                head = render.substring(0, offset);
+                tail = render.substring(offset + match[2].length);
+
+                // stitch render back together
+                render = head + rel + match[2] + tail;
+            });
+
+            return render;
+        });
 
         each(pages, function(page, name)
         {
             partials.content = page;
-            var render = base.render(templateData[name], partials);
 
-            // prefix for relative URLs
-            var rel = '', depth = (name.match(/\//g)||[]).length;
-            while(depth--) {
-                rel += '../';
-            }
+            var locals = data[name];
 
-            if (rel.length) {
+            // pre-render callbacks
+            pre_render.forEach(function(func) {
+                func.call(null, page, name, locals);
+            });
 
-                var head, tail, match, offset, found = [],
-                    regex = /(href|src)="(.*?)"/ig;
+            // render HTML
+            var render = base.render(locals, partials);
 
-                while((match = regex.exec(render)) !== null) {
-                    // ignore external URLs that start with a schema
-                    if (! /^([a-z]+):/.test(match[2])) {
-                        found.push(match);
-                    }
-                }
+            // post-render callbacks
+            post_render.forEach(function(func) {
+                render = func.call(null, render, name, locals);
+            });
 
-                // replace relative URLs in reverse to avoid offset changes
-                found.reverse().forEach(function(match, i)
-                {
-                    // separate render before and after URL
-                    offset = match.index + match[1].length + 2;
-                    head = render.substring(0, offset);
-                    tail = render.substring(offset + match[2].length);
-
-                    // stitch render back together
-                    render = head + rel + match[2] + tail;
-                });
-            }
-
-
+            // write file to disk
             grunt.file.write(options.dist + '/' + name + '.html', render);
         });
 
         function compile(path, partials)
         {
-            var templates = {};
+            var templates = { };
 
             grunt.file.recurse(path, function (absPath, rootDir, subDir, filename)
             {
                 if (!filename.match(matcher)) return;
 
                 var relPath  = absPath.substr(rootDir.length + 1),
-                    name     = relPath.replace(matcher, ''),
                     dataPath = absPath.replace(matcher, '.json'),
-                    locals   = merge({}, globals),
-                    data     = {};
+                    name     = relPath.replace(matcher, ''),
+                    locals   = merge({}, globals);
 
-                var templateSrc = grunt.file.read(absPath),
-                    template    = hogan.compile(templateSrc);
+                locals.url = relPath;
 
                 if (grunt.file.exists(dataPath)) {
-                    data = JSON.parse(grunt.file.read(dataPath));
-                    locals = merge(locals, data);
+                    locals = merge(locals, JSON.parse(grunt.file.read(dataPath)));
                 }
-
-                templateData[name] = locals;
-                templates[name] = template; // template.render(locals, partials);
+                data[name] = locals;
+                templates[name] = hogan.compile(grunt.file.read(absPath));
             });
 
             return templates;
