@@ -2,7 +2,7 @@
   "name": "dbushell-Origin",
   "description": "My HTML5, CSS, and JavaScript starting point for front-end development with automated build tasks.",
   "author": "David Bushell <david@dbushell.com>",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "private": true,
   "repository": {
     "type": "git",
@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "connect": "^2.22.0",
+    "dbushell-grunt-mustatic": "^0.1.0",
     "grunt": "^0.4.5",
     "grunt-autoprefixer": "^0.7.6",
     "grunt-contrib-copy": "^0.5.0",

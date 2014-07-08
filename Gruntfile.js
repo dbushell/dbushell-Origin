@@ -11,6 +11,7 @@ module.exports = function(grunt)
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('dbushell-grunt-mustatic');
 
     // grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-contrib-sass');
@@ -22,7 +23,7 @@ module.exports = function(grunt)
         'jshint',
 
         // start new build
-        'htmlizr2:prod',
+        'mustatic:prod',
 
         // compile Sass to ./build/assets/css/
         'sass:prod',
@@ -45,7 +46,7 @@ module.exports = function(grunt)
 
     ]);
 
-    grunt.registerTask('html', ['htmlizr2:prod']);
+    grunt.registerTask('html', ['mustatic:prod']);
     grunt.registerTask('css', ['sass:prod', 'autoprefixer']);
     grunt.registerTask('server', [/*'default',*/ 'webserver']);
 
@@ -93,10 +94,11 @@ module.exports = function(grunt)
         //     }
         // },
 
-        htmlizr2: {
+        mustatic: {
             options: {
                 src: 'templates',
-                dist: 'build'
+                dest : 'build',
+                navStates : true
             },
             prod: {
                 globals: {
