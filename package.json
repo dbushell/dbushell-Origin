@@ -2,7 +2,7 @@
   "name": "dbushell-Origin",
   "description": "My HTML5, CSS, and JavaScript starting point for front-end development with automated build tasks.",
   "author": "David Bushell <david@dbushell.com>",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "private": true,
   "repository": {
     "type": "git",

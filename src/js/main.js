@@ -1,6 +1,6 @@
 /*!
  *
- *  Copyright (c) David Bushell | @dbushell | http://dbushell.com/
+ *  Copyright (c) David Bushell | http://dbushell.com/
  *
  */
 (function(window, document, undefined)
