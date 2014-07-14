@@ -109,13 +109,13 @@
             }
 
             app.initNavigation();
-
-            if (window.addEventListener) {
-                window.addEventListener('DOMContentLoaded', app.init, false);
-            } else if (window.attachEvent) {
-                window.attachEvent('onload', function(e) { app.init(); });
-            }
         };
+
+        if ($win.addEventListener) {
+            $win.addEventListener('DOMContentLoaded', app.init, false);
+        } else if ($win.attachEvent) {
+            $win.attachEvent('onload', function(e) { app.init(); });
+        }
 
         app.initNavigation = function()
         {
