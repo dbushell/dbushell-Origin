@@ -74,7 +74,7 @@ module.exports = function(grunt)
 
             html: {
                 files: 'templates/**/*.html',
-                tasks: ['htmlizr2:prod'],
+                tasks: ['mustatic:prod'],
                 options: {
                   interrupt: true
                 }
