@@ -73,7 +73,7 @@ module.exports = function(grunt)
             },
 
             html: {
-                files: 'templates/**/*.html',
+                files: ['templates/**/*.html', 'templates/**/*.json'],
                 tasks: ['mustatic:prod'],
                 options: {
                   interrupt: true
