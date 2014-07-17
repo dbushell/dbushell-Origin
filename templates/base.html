@@ -1,16 +1,21 @@
 <!DOCTYPE html>
-<!--[if IE 7]> <html lang="en" class="lt-ie9 lt-ie8 no-js"> <![endif]-->
-<!--[if IE 8]> <html lang="en" class="lt-ie9 no-js"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+{{#IE}}
+{{#IE7}}<!--[if IE 7]> <html lang="{{lang}}" class="lt-ie9 lt-ie8 no-js"> <![endif]-->{{/IE7}}
+{{#IE8}}<!--[if IE 8]> <html lang="{{lang}}" class="lt-ie9 no-js"> <![endif]-->{{/IE8}}
+<!--[if gt IE 8]><!--> <html lang="{{lang}}" class="no-js"> <!--<![endif]-->
+{{/IE}}
+{{^IE}}
+<html lang="{{lang}}" class="no-js">
+{{/IE}}
 <head>
-    <meta charset="utf-8">
+    <meta charset="{{charset}}">
     <!--
 
     Copyright © {{site_owner}} | {{site_url}}
 
     -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="{{description}}">
 
     <title>{{title}}</title>
 

@@ -1,4 +1,12 @@
 {
+    "lang": "en",
+    "charset": "utf-8",
+
+    "IE": {
+        "IE8": true,
+        "IE7": false
+    },
+
     "title": "dbushell-Origin",
 
     "nav": {
