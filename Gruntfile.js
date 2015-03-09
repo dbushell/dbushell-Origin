@@ -160,6 +160,7 @@ module.exports = function(grunt)
                 ],
                 options: {
                     plugins: [{
+                        cleanupIDs: false,
                         removeViewBox: false
                     }]
                 }
