@@ -11,7 +11,7 @@
     <meta charset="{{charset}}">
     <!--
 
-    Copyright © {{site_owner}} | {{site_url}}
+    Copyright (c) {{org}}
 
     -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="{{assets}}css/oldie.css">
     <![endif]-->
 
-    <script src="{{assets}}js/loadrunner.js"></script>
+    <script src="{{assets}}js/loadrunner.min.js"></script>
 
     <link rel="shortcut icon" type="image/x-icon" href="{{assets}}img/favicon.ico">
 
@@ -42,6 +42,9 @@
 <body>
 
 {{>content}}
+
+<!-- <script type="text/javascript" src="{{assets}}js/vendor/jquery-1.11.3.min.js"></script> -->
+<script type="text/javascript" src="{{assets}}js/main.min.js"></script>
 
 </body>
 </html>

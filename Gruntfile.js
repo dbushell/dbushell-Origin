@@ -13,8 +13,7 @@ module.exports = function(grunt)
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('dbushell-grunt-mustatic');
 
-    // grunt.loadNpmTasks('grunt-sass');
-    grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-autoprefixer');
 
     // build order
@@ -85,15 +84,6 @@ module.exports = function(grunt)
             all: ['Gruntfile.js', 'tasks/**/*.js']
         },
 
-        // htmlizr: {
-        //     prod: {
-        //         buildDir: 'build',
-        //         assetsDir: 'assets',
-        //         templateDir: 'templates',
-        //         src: ['templates/**/*.html']
-        //     }
-        // },
-
         mustatic: {
             options: {
                 src: 'templates',
@@ -102,8 +92,6 @@ module.exports = function(grunt)
             },
             prod: {
                 globals: {
-                    site_owner : 'David Bushell',
-                    site_url   : 'http://dbushell.com/',
                     assets     : 'assets/'
                 }
             }

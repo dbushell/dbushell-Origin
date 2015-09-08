@@ -7,13 +7,15 @@
         "IE7": false
     },
 
+    "org": "dbushell.com",
+
     "title": "dbushell-Origin",
 
     "nav": {
         "nav__list": {
             "nav__item": [
                 { "name": "Home", "url": "index.html" },
-                { "name": "Origin", "url": "origin/index.html" }
+                { "name": "Origin", "url": "dev.html" }
             ]
         }
     }
