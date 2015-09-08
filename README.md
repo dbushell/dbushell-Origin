@@ -8,6 +8,7 @@ Includes both Grunt and [Gulp](https://github.com/dbushell/dbushell-Origin/tree/
 
 ## Updates
 
+* **2015-09-08** move from contrib-sass to lib sass
 * **2014-07-14** minor updates to JS / ready for feature/patterns branch
 * **2014-07-08** moved `htmlizr2` to repo: [grunt-Mustatic](https://github.com/dbushell/dbushell-grunt-mustatic)
 * **2014-07-07** replaced `htmlizr` with `htmlizr2` based on [Mustache](http://mustache.github.io/) / [Hogan](http://twitter.github.io/hogan.js/)
