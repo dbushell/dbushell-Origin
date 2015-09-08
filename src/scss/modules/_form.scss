@@ -9,14 +9,14 @@
 .label {
     display: inline-block;
     vertical-align: middle;
-    @include font-size(14, $unit--baseline);
+    @include font-size(14, $baseline);
     font-weight: bold;
 }
 
 .label--checkbox {
     display: inline-block;
     vertical-align: middle;
-    @include font-size(14, $unit--baseline);
+    @include font-size(14, $baseline);
     font-weight: normal !important;
 
     input[type="radio"],
@@ -28,11 +28,11 @@
 
     input[type="checkbox"]:focus + span,
     input[type="checkbox"]:checked + span {
-        color: $colour__text--link;
+        color: $colour--text--link;
     }
 
     input[checked="checked"] + span {
-        color: $colour__text--link;
+        color: $colour--text--link;
     }
 }
 
@@ -41,26 +41,26 @@
     display: block;
     clear: both;
     box-sizing: border-box;
-    @include font-size(16, $unit--field - (($unit * 2) + 4));
+    @include font-size(16, $field - (($unit * 2) + 4));
     width: 100%;
     max-width: em(400);
-    height: em($unit--field);
+    height: em($field);
     padding: em($unit) em($unit * 2);
     outline: none;
-    color: $colour__text--light;
-    border: em(2) solid $colour__hairline;
-    background: $colour__bg--light;
+    color: $colour--text--light;
+    border: em(2) solid $colour--hairline;
+    background: $colour--bg--light;
     font-family: $fonts--sans;
 
     &:focus {
-        color: $colour__text;
-        border-color: $colour__text--link;
+        color: $colour--text;
+        border-color: $colour--text--link;
     }
 
     .lt-ie8 &,
     .no-boxsizing & {
         padding: 0;
-        line-height: em($unit--baseline + $unit);
+        line-height: em($baseline + $unit);
         text-indent: em($unit);
     }
 
@@ -72,24 +72,7 @@
 textarea.field {
     height: auto;
     max-width: none;
-    min-height: em(($unit--baseline*3) + $unit);
-}
-
-fieldset {
-    padding: 0;
-    margin: 0;
-    border: 0;
-    outline: none;
-
-    legend {
-        @include font-size(24, $unit*5);
-        margin-bottom: em($unit*2);
-        width: 100%;
-        padding: 0;
-        color: $colour__text--light;
-        font-weight: normal;
-        border-bottom: 1px solid $colour__hairline;
-    }
+    min-height: em(($baseline*3) + $unit);
 }
 
 .button {
@@ -98,23 +81,23 @@ fieldset {
     display: inline-block;
     *display: inline;
     box-sizing: border-box;
-    @include font-size(16, $unit--field - (($unit * 2) + 4));
+    @include font-size(16, $field - (($unit * 2) + 4));
     padding: em($unit) em($unit * 3);
-    height: em($unit--field);
+    height: em($field);
     outline: none;
     border: none;
-    color: $colour__text--link;
+    color: $colour--text--link;
     font-weight: bold;
     vertical-align: middle;
     border-radius: em(5);
-    border: em(2) solid $colour__text--link;
+    border: em(2) solid $colour--text--link;
     transition: border-color 100ms ease, background-color 100ms ease, transform 100ms ease;
     background-color: transparent;
 
     &:focus,
     &:hover {
-        color: $colour__text--link--hover;
-        border-color: $colour__text--link--hover;
+        color: $colour--text--link--hover;
+        border-color: $colour--text--link--hover;
         border-width: em(2);
     }
 }
@@ -126,75 +109,20 @@ fieldset {
 }
 
 .button--large {
-    @include font-size(18, $unit--field - 4);
+    @include font-size(18, $field - 4);
     border-width: em(2, 18) !important;
     border-radius: em(8, 18);
     padding: em($unit, 18) em($unit * 4, 18);
-    height: em($unit--field + ($unit * 2), 18);
+    height: em($field + ($unit * 2), 18);
 }
 
 .button--small {
-    @include font-size(14, $unit--field - ($unit + 4));
+    @include font-size(14, $field - ($unit + 4));
     border-width: em(2, 14) !important;
     border-radius: em(5, 14);
     padding: 0 em($unit * 1.5, 14);
-    height: em($unit--field - ($unit), 14);
+    height: em($field - ($unit), 14);
 }
-
-// .switch {
-//     // scope with both selectors to avoid partial support
-//     &:checked ,
-//     &:not(:checked) {
-//         @include visually-hidden;
-
-//         & + span {
-//             position: relative;
-//             display: inline-block;
-
-//             &:before {
-//                 content: "Off";
-//                 position: relative;
-//                 display: inline-block;
-//                 font-size: em(12, 14);
-//                 line-height: em($unit*3, 12);
-//                 top: em($unit/2, 12);
-//                 width: em($unit--gutter*2, 12);
-//                 height: em($unit*3, 12);
-//                 padding: 0 em($unit, 12);
-//                 margin-right: em($unit, 12);
-//                 background: $colour__bg--light;
-//                 vertical-align: top;
-//                 color: $colour__text--light;
-//                 font-weight: bold;
-//                 text-align: right;
-//                 text-transform: uppercase;
-//             }
-
-//             &:after {
-//                 content: "";
-//                 position: absolute;
-//                 display: block;
-//                 top: em($unit/2, 14);
-//                 left: 0;
-//                 width: em($unit--gutter+$unit, 14);
-//                 height: em($unit*3, 14);
-//                 background: $colour__text--light;
-//                 transition: left 50ms ease, background 50ms ease;
-//             }
-//         }
-//     }
-
-//     &:checked + span {
-//         &:before {
-//             content: "On";
-//             text-align: left;
-//         }
-//         &:after {
-//             left: em($unit--gutter+$unit, 14);
-//             background: $colour__text--link;
-//         }
-//     }
-// }
 
 .form__list {
     @include clearfix;
@@ -209,13 +137,13 @@ fieldset {
 .form__item {
     font-size: inherit;
     line-height: 0;
-    margin-bottom: em($unit--baseline / 2);
+    margin-bottom: em($baseline / 2);
 
     &:last-child { margin-bottom: 0; }
 }
 
 .form {
-    margin-bottom: em($unit--baseline);
+    margin-bottom: em($baseline);
 
     &:last-child {
         margin-bottom: 0;
@@ -227,13 +155,13 @@ fieldset {
 }
 
 .form--inline {
-    margin-bottom: em($unit--baseline/2);
+    margin-bottom: em($baseline/2);
 
     .form__item {
         display: inline-block;
         vertical-align: bottom;
-        margin-right: em($unit--gutter/2);
-        margin-bottom: em($unit--baseline/2);
+        margin-right: em($gutter/2);
+        margin-bottom: em($baseline/2);
     }
 }
 
@@ -241,7 +169,7 @@ fieldset {
 
     .form__item {
         position: relative;
-        padding-left: em(140 + $unit--gutter);
+        padding-left: em(140 + $gutter);
 
         & > label:not([class*="label--"]) {
             position: absolute;
@@ -264,7 +192,7 @@ fieldset {
         display: table-cell;
         margin: 0;
         width: 100%;
-        height: em($unit--field);
+        height: em($field);
         vertical-align: top;
 
         &:last-child {
@@ -282,6 +210,6 @@ fieldset {
 
     .button {
         float: right;
-        margin-left: em($unit--gutter/2);
+        margin-left: em($gutter/2);
     }
 }

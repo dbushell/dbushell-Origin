@@ -1,12 +1,12 @@
 
 html {
-    background: $colour__bg;
-    font-family: $fonts--serif;
+    background: $colour--bg;
+    font-family: $fonts;
     overflow-y: scroll;
     min-width: em(320);
     padding: 0;
     margin: 0;
-    color: $colour__text;
+    color: $colour--text;
 }
 
 a {
@@ -20,8 +20,30 @@ img {
     height: auto;
 }
 
-// http://msdn.microsoft.com/en-gb/library/ie/jj583807(v=vs.85).aspx
+ul, ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
 
+// https://github.com/twbs/bootstrap/issues/8702#issuecomment-21692968
+button, input, select, .button, .field {
+    font-family: $fonts;
+}
+
+.hidden {
+    @include hidden;
+}
+
+.vhidden {
+    @include visually-hidden;
+}
+
+.js *[data-href] {
+    cursor: pointer;
+}
+
+// http://msdn.microsoft.com/en-gb/library/ie/jj583807(v=vs.85).aspx
 canvas {
     -ms-touch-action: double-tap-zoom;
 }
@@ -31,15 +53,15 @@ canvas {
 
 .gs {
     @include clearfix;
-    margin-left: em(-$unit--gutter/2);
-    margin-right: em(-$unit--gutter/2);
+    margin-left: em(-$gutter/2);
+    margin-right: em(-$gutter/2);
 }
 
 .gc {
     width: 100%;
     float: left;
-    padding: 0 em($unit--gutter/2);
-    margin-bottom: em($unit--baseline);
+    padding: 0 em($gutter/2);
+    margin-bottom: em($baseline);
     box-sizing: border-box;
 
     .no-boxsizing & {
@@ -48,7 +70,7 @@ canvas {
 }
 
 .no-boxsizing .gc-body {
-    padding: 0 em($unit--gutter/2);
+    padding: 0 em($gutter/2);
 }
 
 .gs__block--3c { .gc { width: 33.33333%; } }
@@ -90,12 +112,12 @@ canvas {
 
     @include respond-max($breakpoint--mobile)
     {
-        padding: 0 em($unit--gutter);
+        padding: 0 em($gutter);
     }
 
     .lt-ie9 & {
         min-width: em(900);
-        padding: 0 em($unit--gutter);
+        padding: 0 em($gutter);
     }
 
     .lt-ie8 & {
@@ -106,17 +128,9 @@ canvas {
 // test page only
 
 .block--origin {
-    margin-top: em($unit--baseline*2);
-    margin-bottom: em($unit--baseline*2);
+    margin-top: em($baseline*2);
+    margin-bottom: em($baseline*2);
 }
-
-// .block--origin .block__title {
-//     @include font-size(36, $unit--baseline);
-//     padding: em($unit--baseline/2, 36) em($unit--baseline, 36);
-//     margin: em($unit--baseline, 36) em(-$unit--baseline, 36);
-//     color: $colour__text--brand;
-//     background: $colour__bg--light;
-// }
 
 #block-grids {
     .gc p {
@@ -124,13 +138,6 @@ canvas {
         color: #fff;
         font-weight: bold;
         text-align: center;
-        background: $colour__bg--dark;
+        background: $colour--bg--dark;
     }
 }
-
-// #block-tables {
-//     .table-responsive {
-//         display: block;
-//         max-width: em(640);
-//     }
-// }

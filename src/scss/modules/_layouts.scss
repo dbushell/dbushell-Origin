@@ -4,7 +4,7 @@
 
     &__image {
         float: left;
-        margin-right: em($unit--gutter);
+        margin-right: em($gutter);
     }
 
     &__body {
@@ -14,36 +14,8 @@
     &--rtl {
         .media__image {
             float: right;
-            margin-left: em($unit--gutter);
+            margin-left: em($gutter);
             margin-right: 0;
         }
     }
 }
-
-// .justified {
-//     text-align: justify;
-
-//     &:after {
-//         display: inline-block;
-//         content: "";
-//         width: 100%;
-//     }
-// }
-
-// .justified__item {
-//     width: 20%;
-//     vertical-align: top;
-//     display: inline-block;
-//     margin-bottom: em($unit--baseline);
-//     padding: em($unit--baseline/2) em($unit--gutter/2);
-//     text-align: center;
-//     background: $colour__bg--light;
-//     box-sizing: border-box;
-// }
-
-// @include respond-max($breakpoint--mobile)
-// {
-//     .justified__item {
-//         width: 48%;
-//     }
-// }
