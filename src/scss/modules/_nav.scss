@@ -1,43 +1,7 @@
+/*!
+// Nav
+*/
 
 .nav {
-    font-family: $fonts--sans;
-}
-
-.nav__list {
-    list-style: none;
-    margin: 0;
-}
-
-.nav__title {
-    @include visually-hidden;
-}
-
-
-.nav__link {
-    display: block;
-    padding: em($unit) em($unit*2);
-    @include font-size(16, $unit--baseline);
-    color: $colour__text--link;
-    font-weight: bold;
-    background-color: $colour__bg--light;
-
-    &:focus,
-    &:hover {
-        color: #fff;
-        background-color: $colour__text--link;
-    }
-}
-
-.nav__item {
-    display: inline-block;
-    margin: 0;
-    font-size: inherit;
-    line-height: inherit;
-}
-
-.nav__item--active {
-    .nav__link {
-        color: #fff;
-        background-color: $colour__text--link;
-    }
+  display: block;
 }

@@ -1,0 +1,49 @@
+/*!
+// Grid
+*/
+
+.grid {
+  @include clearfix;
+  margin: 0 em(-$gutter/2) em(-$baseline) em(-$gutter/2);
+}
+
+.grid__item {
+  position: relative;
+  display: block;
+  width: 100%;
+  float: left;
+  padding: 0 em($gutter/2);
+  margin-bottom: em($baseline);
+}
+
+@include respond-min($breakpoint-mobile) {
+
+  .grid--2up,
+  .grid--4up {
+
+    .grid__item {
+      width: 50%;
+
+      &:nth-child(2n + 1) {
+        clear: left;
+      }
+    }
+  }
+
+}
+
+@include respond-min($breakpoint-desktop) {
+
+  .grid--4up {
+
+    .grid__item {
+      width: 25%;
+      clear: none !important;
+
+      &:nth-child(4n + 1) {
+        clear: left !important;
+      }
+    }
+  }
+
+}

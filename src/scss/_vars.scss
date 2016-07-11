@@ -1,0 +1,54 @@
+/*!
+// Vars
+*/
+
+// Sizes
+
+$max-width : 1000;
+$min-width : 320;
+
+$baseline  : 30;
+$gutter    : 30;
+
+// zIndexes
+
+$z-nav     : 5000;
+$z-header  : 3000;
+$z-main    : 1000;
+
+// Breakpoints
+
+$breakpoint-mobile  : 600;
+$breakpoint-desktop : 900;
+
+// Text
+
+$fonts-sans  : ".SFNSDisplay-Regular", "Helvetica Neue", Arial, sans-serif;
+$fonts-serif : "Palatino", "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+
+
+$h1     : 40;
+$h2     : 30;
+$h3     : 25;
+$h4     : 20;
+
+$large  : 20;
+$p      : 16;
+$small  : 14;
+
+// Colours
+
+$white  : #ffffff;
+$black  : #494b4d;
+$yellow : #fffbcc;
+$blue   : #1d97bf;
+$red    : #e55c5c;
+$grey   : #919599;
+
+// Colours - Abstract
+
+$text      : $black;
+$light     : $grey;
+$error     : $red;
+$brand     : $blue;
+$highlight : $yellow;

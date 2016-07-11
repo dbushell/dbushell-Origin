@@ -1,43 +1,14 @@
-<!DOCTYPE html>
-<html lang="en" class="no-js">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <title>Pattern Library</title>
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="shortcut icon" href="assets/icons/favicon.ico">
-  <script src="assets/js/head.js"></script>
-</head>
-<body>
-
-<header class="header">
-  <div class="block">
-    <nav class="nav">
-      <h2 class="nav__title">Menu</h2>
-      <ul class="nav__list">
-        <li class="nav__item ">
-          <a class="nav__link" href="index.html">Home</a>
-        </li>
-        <li class="nav__item nav__item--active">
-          <a class="nav__link" href="./dev.html">Patterns</a>
-        </li>
-      </ul>
-    </nav>
-    <!--/.nav-->
-  </div>
-</header>
-<!--/.header-->
+{{> header }}
 <main class="main">
   <div class="block">
 
     <div class="prose">
 
-      <h1>Pattern Library</h1>
+      <h1>{{ title }}</h1>
       <p><strong>HyperText Markup Language</strong>, <em>commonly abbreviated as <abbr title="HyperText Markup Language">HTML</abbr></em>, is the standard markup language used to create web pages. Along with CSS, and JavaScript, HTML is a cornerstone technology used to create web pages.</p>
 
       <h2>Second level heading</h2>
-      <p><a href="./">HyperText Markup Language</a>, commonly abbreviated as HTML, is the standard markup language used to create web pages. Along with CSS, and JavaScript, HTML is a cornerstone technology used to create web pages.</p>
+      <p><a href="">HyperText Markup Language</a>, commonly abbreviated as HTML, is the standard markup language used to create web pages. Along with CSS, and JavaScript, HTML is a cornerstone technology used to create web pages.</p>
 
       <h3>3rd level heading</h3>
       <p>HyperText Markup Language, commonly abbreviated as HTML, is the standard markup language used to create web pages. Along with CSS, and JavaScript, HTML is a cornerstone technology used to create web pages.</p>
@@ -253,10 +224,10 @@
 
     <h2 id="pattern-buttons"><a href="#pattern-buttons">#</a> Buttons</h2>
 
-    <a class="button" href="./">Anchor</a>
+    <a class="button" href="">Anchor</a>
     <button class="button" type="button">Button</button>
     <input class="button" type="submit" value="Submit">
-    <a class="button button--link" href="./">Link</a>
+    <a class="button button--link" href="">Link</a>
 
     <hr>
 
@@ -274,14 +245,4 @@
   <!--/.block-->
 </main>
 <!--/.main-->
-<footer class="footer">
-  <div class="block">
-    <p><small>Copyright &copy; dbushell.com</small></p>
-  </div>
-</footer>
-<!--/.footer-->
-
-  <script src="assets/js/vendor/jquery-3.0.0.min.js"></script>
-  <script src="assets/js/main.js"></script>
-</body>
-</html>
+{{> footer }}

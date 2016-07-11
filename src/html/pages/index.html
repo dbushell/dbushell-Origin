@@ -1,38 +1,9 @@
-<!DOCTYPE html>
-<html lang="en" class="no-js">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <title>dbushell-Origin</title>
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="shortcut icon" href="assets/icons/favicon.ico">
-  <script src="assets/js/head.js"></script>
-</head>
-<body>
-
-<header class="header">
-  <div class="block">
-    <nav class="nav">
-      <h2 class="nav__title">Menu</h2>
-      <ul class="nav__list">
-        <li class="nav__item nav__item--active">
-          <a class="nav__link" href="./index.html">Home</a>
-        </li>
-        <li class="nav__item ">
-          <a class="nav__link" href="dev.html">Patterns</a>
-        </li>
-      </ul>
-    </nav>
-    <!--/.nav-->
-  </div>
-</header>
-<!--/.header-->
+{{> header }}
 <main class="main">
   <div class="block">
 
     <div class="prose">
-      <h1>dbushell-Origin</h1>
+      <h1>{{ title }}</h1>
       <p class="large"><strong>Welcome to Origin, my front-end development starter kit.</strong> Origin is one part automated build tasks and one part <a href="dev.html">baseline pattern library</a>.</p>
       <h2>About this project</h2>
       <p>Like the Web itself this project is forever a <em>work in progress</em>. I’ve decided to make Origin public for those interested. <strong>Origin it not a final solution, framework, or boilerplate I expect others to use “as is”.</strong></p>
@@ -60,14 +31,4 @@
   <!--/.block-->
 </main>
 <!--/.main-->
-<footer class="footer">
-  <div class="block">
-    <p><small>Copyright &copy; dbushell.com</small></p>
-  </div>
-</footer>
-<!--/.footer-->
-
-  <script src="assets/js/vendor/jquery-3.0.0.min.js"></script>
-  <script src="assets/js/main.js"></script>
-</body>
-</html>
+{{> footer }}

@@ -1,0 +1,19 @@
+/*!
+// Block
+*/
+
+.block {
+  position: relative;
+  margin: 0 auto;
+  padding: 0 em($gutter);
+  max-width: em($max-width);
+}
+
+@include respond-min($breakpoint-mobile) {
+
+  .block {
+    padding-left: em($gutter * 2);
+    padding-right: em($gutter * 2);
+  }
+
+}

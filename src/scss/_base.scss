@@ -1,0 +1,63 @@
+/*!
+// Base
+*/
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  min-width: em($min-width);
+  background: $white;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+ul, ol, li, figure, figcaption {
+  margin: 0;
+  padding: 0;
+}
+
+input,
+button {
+  border: 0;
+  border-radius: 0;
+  outline: none;
+}
+
+.vhidden {
+  @include visually-hidden;
+}
+
+@include respond-min($breakpoint-mobile) {
+
+  .mobile-only {
+    @include visually-hidden;
+  }
+
+}
+
+@include respond-max($breakpoint-mobile - 1) {
+
+  .desktop-only {
+    @include visually-hidden;
+  }
+
+}

@@ -1,312 +1,311 @@
+/*!
+// Typography
+*/
+
+body {
+  color: $text;
+  line-height: 1.4;
+  font-family: $fonts-sans;
+}
 
 ::selection {
-    color: #fff;
-    background: $colour__text--link;
+  text-shadow: none;
+  background: $highlight;
+}
+
+hr {
+  display: block;
+  clear: both;
+  border: none;
+  outline: none;
+  height: 2px;
+  opacity: 0.2;
+  background: $black;
+  margin: em($baseline*1.5) 0;
 }
 
 a {
-    color: $colour__text--link;
-    text-decoration: none;
-
-    &:focus, &:hover {
-        color: $colour__text--link--hover;
-    }
+  color: currentColor;
+  text-decoration: none;
 }
 
-h1, h2, h3, h4, h5, h6,
-.h0, .h1, .h2, .h3, .h4, .h5, .h6 {
-    font-weight: bold;
-    margin-top: 0;
+b, strong {
+  font-weight: 700;
 }
 
-h1, .h1, .h0 {
-    @include font-size($unit--h1, $unit * 7);
-    margin-bottom: em($unit * 3, $unit--h1);
-    letter-spacing: -1px;
-    font-weight: normal;
-
-    a {
-        color: $colour__text--light;
-
-        &:focus, &:hover {
-            color: $colour__text--brand;
-        }
-    }
-}
-
-h2, .h2 {
-    @include font-size($unit--h2, $unit * 5);
-    margin-bottom: em($unit * 2, $unit--h2);
-}
-
-h3, .h3 {
-    @include font-size($unit--h3, $unit * 5);
-    margin-bottom: em($unit * 2, $unit--h3);
-}
-
-h4, .h4 {
-    @include font-size($unit--h4, $unit * 4);
-    margin-bottom: em($unit * 2, $unit--h4);
-}
-
-h5, h6, .h5, .h6 {
-    @include font-size($unit--h5);
-    margin-bottom: em($unit * 2, $unit--h5);
-}
-
-p, .p {
-    @include font-size($unit--p);
-    margin-top: 0;
-    margin-bottom: em($unit--baseline/2, $unit--p);
-    color: $colour__text;
-
-    & + h1 { margin-top: em($unit--baseline * 1.5, $unit--h1); }
-    & + h2 { margin-top: em($unit--baseline * 1.5, $unit--h2); }
-    & + h3 { margin-top: em($unit--baseline * 1.5, $unit--h3); }
-
-    &:last-child { margin-bottom: 0; }
-}
-
-.p--error {
-    color: $colour__error;
-}
-
-.p--no-margin {
-    margin-bottom: 0 !important;
-}
-
-.p--quote {
-
-    &:before {
-        display: inline-block;
-        line-height: 1;
-        content: "“";
-        width: 0.6em;
-        margin-left: -0.6em;
-        opacity: 0.7;
-    }
-
-    &:after {
-        content: "”";
-        opacity: 0.7;
-    }
-}
-
-.p--large {
-    @include font-size($unit--p--large, $unit--p--large + ($unit * 2));
-    margin-bottom: em($unit--baseline, $unit--p--large);
-
-    &:last-child { margin-bottom: 0; }
-}
-
-.p--small {
-    @include font-size($unit--p--small, $unit * 3);
-    margin-bottom: em($unit--baseline/2, $unit--p--small);
-
-    &:last-child { margin-bottom: 0; }
-
-    a {
-        border-bottom: none !important;
-        text-decoration: underline;
-    }
-}
-
-ul, ol {
-    padding: 0;
-    margin-top: 0;
-    margin-left: em($unit--gutter);
-    margin-bottom: em($unit--baseline);
-    list-style: disc outside;
-
-    p + & {
-        margin-top: em($unit--baseline);
-    }
-
-    li {
-        @include font-size($unit--p);
-        margin-bottom: em($unit, $unit--p);
-        color: $colour__text;
-    }
-
-    &:not([class]) p {
-        font-size: inherit;
-        line-height: inherit;
-    }
-
-    ul, ol {
-        font-size: inherit;
-        line-height: inherit;
-        margin-left: em($unit--gutter, $unit--p);
-        margin-top: em($unit, $unit--p);
-        margin-bottom: em($unit, $unit--p) !important;
-
-        li {
-            font-size: inherit;
-            line-height: inherit;
-        }
-    }
-
-    &:last-child { margin-bottom: 0; }
-}
-
-ol {
-    list-style: decimal outside;
-}
-
-cite {
-    border: none;
-}
-
-.quote,
-blockquote:not([class*="quote--"]) {
-    margin: em($unit--baseline) 0;
-    padding: 0 em($unit--gutter);
-    border-left: em(2) solid $colour__hairline;
-
-    p {
-        color: $colour__text--light;
-    }
-
-    .p--large {
-        & + .p--small:last-child { margin-top: em(-$unit * 2, $unit--p--small); }
-    }
-
-    cite {
-        font-style: normal;
-
-        a:not(:hover) {
-            color: $colour__text--light;
-        }
-
-        a {
-            text-decoration: underline;
-            text-shadow: none !important;
-            background: none !important;
-        }
-    }
-}
-
-abbr,
-.abbr,
-acronym {
-    &[title] {
-        border: none;
-        background-image: linear-gradient(to left, rgba($colour__text, 0) 50%, rgba($colour__text, 0.5) 50%);
-        background-position: 0 bottom;
-        background-repeat: repeat-x;
-        background-size: 2px 1px;
-    }
-}
-
-pre,
-kbd,
-code {
-    @include font-size($unit--p--small, $unit * 3);
-    font-family: $fonts--monospace;
-    background: $colour__bg--dark;
-    color: $colour__white;
-}
-
-code {
-    color: $colour__text;
-    background: $colour__canvas;
-}
-
-pre {
-    clear: both;
-    overflow: auto;
-    margin: em($unit--baseline * 1.5, $unit--p--small) 0;
-    padding: em($unit--baseline, $unit--p--small) em($unit--gutter, $unit--p--small);
-    box-shadow: inset 0 1px 7px darken($colour__bg--dark, 10);
-
-    direction: ltr;
-    text-align: left;
-    white-space: pre;
-    word-spacing: normal;
-    word-break: normal;
-    -moz-tab-size: 4;
-    -o-tab-size: 4;
-    tab-size: 4;
-    -webkit-hyphens: none;
-    -moz-hyphens: none;
-    -ms-hyphens: none;
-    hyphens: none;
-
-    code {
-        display: block;
-        color: inherit;
-        font-size: inherit;
-        line-height: inherit;
-        background: none;
-        padding: 0;
-    }
-}
-
-kbd,
-code {
-    display: inline-block;
-    line-height: 1.5;
-    padding: 0 em(3, $unit--p--small);
-
-    p & {
-        font-size: em($unit--p--small, $unit--p);
-    }
-}
-
-mark,
-.mark {
-    background: $colour__highlight;
-    text-shadow: none !important;
-}
-
-q {
-    font-style: italic;
-    &:before { content: "“"; }
-    &:after { content: "”"; }
+i, em {
+  font-style: italic;
 }
 
 small {
-    color: $colour__text--light;
+  font-size: inherit;
+}
+
+code {
+  font-size: inherit;
+  background: $highlight;
+
+  p &,
+  li & {
+    font-size: 90%;
+  }
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  display: block;
+  margin: 0;
+  line-height: 1;
+  font-weight: bold;
+  font-family: $fonts-serif;
+
+  &:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  a {
+    color: inherit !important;
+  }
+}
+
+h1, .h1 {
+  font-size: em($h1);
+  margin-bottom: em($baseline/1.5, $h1);
+
+  .small &,
+  .prose--small & {
+    font-size: em($h1, $small);
+  }
+
+  .large &,
+  .prose--large & {
+    font-size: em($h1, $large);
+  }
+}
+
+h2, .h2 {
+  font-size: em($h2);
+  margin-bottom: em($baseline/1.5, $h2);
+
+  .small &,
+  .prose--small & {
+    font-size: em($h2, $small);
+  }
+
+  .large &,
+  .prose--large & {
+    font-size: em($h2, $large);
+  }
+}
+
+h3, .h3 {
+  font-size: em($h3);
+  margin-bottom: em($baseline/1.5, $h3);
+
+  .small &,
+  .prose--small & {
+    font-size: em($h3, $small);
+  }
+
+  .large &,
+  .prose--large & {
+    font-size: em($h3, $large);
+  }
+}
+
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  font-size: em($h4);
+  margin-bottom: em($baseline/1.5, $h4);
+
+  .small & {
+    font-size: em($h4, $small);
+  }
+
+  .large & {
+    font-size: em($h4, $large);
+  }
+}
+
+p, .p {
+  font-size: em($p);
+  margin-top: 0;
+  margin-bottom: em($baseline, $p);
+
+  &:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  .small &,
+  .large & {
     font-size: inherit;
-    line-height: inherit;
+  }
 
-    a {
-        color: $colour__text--light;
-        text-decoration: underline;
-        border: none !important;
-    }
-}
+  &.small {
+    margin-bottom: em($baseline, $small);
+  }
 
-del,
-strike {
-    color: $colour__text--light;
-    text-decoration: none;
-    background-image: linear-gradient(to bottom, rgba($colour__text--light, 0.5) 0%, rgba($colour__text--light, 0.5) 100%);
-    background-position: 0 center;
-    background-repeat: repeat-x;
-    background-size: 2px 2px;
-}
-
-time {
-    display: inline-block;
-    color: $colour__text--light;
-    text-transform: uppercase;
-    font-family: $fonts--sans;
-
-    abbr[title] {
-        border: none;
-        background-image: none;
-    }
+  &.large {
+    margin-bottom: em($baseline, $large);
+  }
 }
 
 .prose {
-    margin-bottom: em($unit--baseline);
+  margin-bottom: em($baseline);
 
-    a:not([class]) {
-        text-decoration: underline;
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  a {
+    color: $brand;
+
+    &:focus,
+    &:hover {
+      text-decoration: underline;
     }
+  }
+
+  img {
+    margin: 0 auto em($baseline) auto;
 
     &:last-child {
-        margin-bottom: 0;
+      margin-bottom: 0;
     }
+  }
+
+  ul, ol {
+    font-size: em($p);
+    margin: em($baseline, $p) em($gutter, $p);
+
+    &:last-child {
+      margin-bottom: 0 !important;
+    }
+
+    .small &,
+    .large & {
+      font-size: inherit;
+      line-height: inherit;
+    }
+
+    p, li, ul, ol {
+      font-size: inherit;
+      line-height: inherit;
+    }
+
+    ul, ol {
+      margin-top: em($baseline/3);
+      margin-right: 0;
+    }
+  }
+
+  li {
+    margin-bottom: em($baseline/3);
+  }
+
+  ul {
+    list-style: disc outside;
+  }
+
+  ol {
+    list-style: decimal;
+
+    // CSS counter to style numbered list
+    list-style: none;
+    counter-reset: section;
+
+    li {
+      &:before {
+        display: block;
+        float: left;
+        margin-right: -100%;
+        padding-right: 0.25em;
+        transform: translateX(-100%);
+        counter-increment: section;
+        content: counter(section) ".";
+      }
+    }
+  }
+}
+
+.small,
+.prose--small {
+  font-size: em($small);
+
+  .small {
+    font-size: inherit;
+  }
+
+  p {
+    margin-bottom: em($baseline, $small);
+  }
+}
+
+.prose--small {
+
+  p {
+    margin-bottom: em($baseline/2, $small);
+  }
+
+  ul, ol {
+    margin: em($baseline/2, $small) em($gutter, $small);
+
+    ul, ol {
+      margin-top: em($baseline/10, $small);
+      margin-right: 0;
+    }
+  }
+
+  li {
+    margin-bottom: em($baseline/10, $small);
+  }
+}
+
+.large,
+.prose--large {
+  font-size: em($large);
+
+  .large {
+    font-size: inherit;
+  }
+
+  p {
+    margin-bottom: em($baseline, $large);
+  }
+}
+
+.prose--large {
+
+  ul, ol {
+    margin: em($baseline, $large) em($gutter, $large);
+
+    ul, ol {
+      margin-top: em($baseline/3, $large);
+      margin-right: 0;
+    }
+  }
+
+  li {
+    margin-bottom: em($baseline/3, $large);
+  }
+}
+
+
+// Utility classes
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.text-light {
+  opacity: 0.5;
 }

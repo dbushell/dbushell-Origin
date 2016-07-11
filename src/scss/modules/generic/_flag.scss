@@ -1,0 +1,109 @@
+/*!
+// Flag
+*/
+
+.flag {
+  display: table;
+  width: 100%;
+  margin-bottom: em($gutter);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.flag__body,
+.flag__image {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.flag__image {
+  order: 1;
+  max-width: 25%;
+
+  img {
+    display: block;
+    max-width: none;
+  }
+}
+
+.flag__body {
+  order: 2;
+  width: 100%;
+  padding-left: em($gutter/2);
+
+  &:first-child {
+    padding-left: 0;
+  }
+}
+
+.flag--top {
+  align-items: flex-start !important;
+
+  .flag__body,
+  .flag__image {
+    vertical-align: top;
+  }
+}
+
+.flag--bottom {
+  align-items: flex-end !important;
+
+  .flag__body,
+  .flag__image {
+    vertical-align: bottom;
+  }
+}
+
+.flexbox {
+
+  .flag {
+    flex: 1 1 0;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .flag__image,
+  .flag__body {
+    display: block;
+  }
+
+  .flag__image {
+    flex-shrink: 0;
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .flag__body {
+    width: auto;
+    flex-shrink: 1;
+  }
+
+  .flag--rev {
+     justify-content: flex-end;
+
+    .flag__image {
+      order: 2;
+    }
+
+    .flag__body {
+      order: 1;
+      padding-left: 0;
+      padding-right: em($gutter/2);
+    }
+  }
+
+}
+
+@include respond-min($breakpoint-mobile) {
+
+  .flag__image {
+    max-width: 50%;
+  }
+
+}

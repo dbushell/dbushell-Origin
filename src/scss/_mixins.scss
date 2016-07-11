@@ -1,0 +1,66 @@
+/*!
+// Mixins
+*/
+
+@function em($px, $base: 16) {
+  @return ($px / $base) + em;
+}
+
+@mixin respond-min($width) {
+    @media screen and (min-width: em($width)) {
+        @content;
+    }
+}
+
+@mixin respond-min-max($w1, $w2) {
+    @media screen and (min-width: em($w1)) and (max-width: em($w2)) {
+        @content;
+    }
+}
+
+@mixin respond-max($width) {
+    @media screen and (max-width: em($width)) {
+        @content;
+    }
+}
+
+@mixin no-tap-highlight {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    outline: none;
+}
+
+@mixin text-truncate {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+@mixin clearfix {
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+    *zoom: 1;
+}
+
+// Hide from both screenreaders and browsers: h5bp.com/u
+@mixin hidden {
+    display: none;
+    visibility: hidden;
+}
+
+// Hide only visually, but have it available for screenreaders: h5bp.com/v
+@mixin visually-hidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
