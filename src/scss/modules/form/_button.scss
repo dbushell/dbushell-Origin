@@ -1,0 +1,43 @@
+/*!
+// Button
+*/
+
+.button {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  appearance: none;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+  text-decoration: none;
+  transition: color 100ms ease,
+              background 100ms ease;
+  font-weight: bold;
+  font-size: em($small);
+  line-height: em(20, $small);
+  padding: em(10, $small) em(20, $small);
+  border-radius: em(5, $small);
+  min-height: em(40, $small);
+  background: $blue;
+  color: $white;
+
+  &:focus,
+  &:hover {
+    color: $white;
+    background-color: $black;
+  }
+}
+
+.button--link {
+  color: $blue;
+  background-color: transparent;
+  text-decoration: underline;
+
+  &:focus,
+  &:hover {
+    text-decoration: none;
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "lang": "en",
+  "charset": "utf-8",
+
+  "org": "dbushell.com",
+
+  "title": "dbushell-Origin",
+
+  "nav": {
+    "nav__list": {
+      "nav__item": [
+        { "name": "Home", "url": "index.html" },
+        { "name": "Patterns", "url": "dev.html" }
+      ]
+    }
+  }
+}

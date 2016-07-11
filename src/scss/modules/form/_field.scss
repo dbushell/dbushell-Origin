@@ -1,0 +1,50 @@
+/*!
+// Field
+*/
+.field {
+  -webkit-tap-highlight-color: transparent;
+  display: block;
+  position: relative;
+  appearance: none;
+  outline: none;
+  user-select: none;
+  text-decoration: none;
+  transition: color 100ms ease,
+              border 100ms ease,
+              background 100ms ease;
+
+  width: 100%;
+  font-weight: normal;
+  font-size: em($p);
+  line-height: em(20, $p);
+  padding: em(8, $p) em(10, $p);
+  min-height: em(40, $p);
+  border: em(2, $p) solid rgba($light, 0.5);
+  color: $light;
+
+  &:focus,
+  &:hover {
+    border-color: $blue;
+    color: $text;
+  }
+
+  &::-webkit-input-placeholder {
+    color: rgba($light, 0.5);
+  }
+
+  &::-moz-placeholder {
+    color: rgba($light, 0.5);
+  }
+
+  &:-ms-input-placeholder {
+    color: rgba($light, 0.5);
+  }
+
+  &:-moz-placeholder {
+    color: rgba($light, 0.5);
+  }
+}
+
+textarea.field {
+  min-height: em(140, $p);
+}

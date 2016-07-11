@@ -7,6 +7,4 @@ Thumbs.db
 Desktop.ini
 .sass-cache
 node_modules
-build
-build-gulp
 *.log

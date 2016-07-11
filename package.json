@@ -1,26 +1,20 @@
 {
   "name": "dbushell-Origin",
-  "description": "My HTML5, CSS, and JavaScript starting point for front-end development with automated build tasks.",
+  "description": "My front-end development starter kit with automated build tasks.",
   "author": "David Bushell <david@dbushell.com>",
-  "version": "2.4.2",
+  "version": "3.0.0",
   "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/dbushell/dbushell-Origin.git"
   },
   "dependencies": {
-    "connect": "^3.4.0",
-    "dbushell-grunt-mustatic": "^0.1.1",
-    "grunt": "^0.4.5",
-    "grunt-autoprefixer": "^3.0.3",
-    "grunt-contrib-copy": "^0.8.1",
-    "grunt-contrib-jshint": "^0.11.3",
-    "grunt-contrib-uglify": "^0.9.2",
-    "grunt-contrib-watch": "^0.6.1",
-    "grunt-imageoptim": "^1.4.1",
-    "grunt-sass": "^1.1.0-beta",
-    "grunt-svg2png": "^0.2.3",
-    "grunt-svgmin": "^2.0.1"
+    "autoprefixer": "^6.3.7",
+    "dbushell-grunt-mustatic": "^0.1.5",
+    "grunt": "^1.0.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-postcss": "^0.8.0",
+    "grunt-sass": "^1.2.0"
   },
-  "engine": "node >= 0.10.x"
+  "engine": "node >= 4.x.x"
 }
