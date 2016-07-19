@@ -4,7 +4,6 @@
 
 
 /*! Copyright (c) David Bushell | http://dbushell.com */
-
 (function(win, doc) {
 
   var ua = navigator.userAgent,

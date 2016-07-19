@@ -1,8 +1,4 @@
-/*!
-*
-*  Copyright (c) David Bushell | http://dbushell.com/
-*
-*/
+/*! Copyright (c) David Bushell | http://dbushell.com */
 (function(win, doc) {
 
   /* fake links */
