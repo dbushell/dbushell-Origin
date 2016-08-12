@@ -717,10 +717,10 @@ button {
      -moz-appearance: none;
           appearance: none;
   outline: none;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -webkit-user-select: text;
+     -moz-user-select: text;
+      -ms-user-select: text;
+          user-select: text;
   text-decoration: none;
   transition: color 100ms ease, border 100ms ease, background 100ms ease;
   width: 100%;
