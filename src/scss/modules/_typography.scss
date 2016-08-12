@@ -138,7 +138,9 @@ p, .p {
   }
 
   .small &,
-  .large & {
+  .large &,
+  .prose--small &,
+  .prose--large & {
     font-size: inherit;
   }
 
@@ -183,12 +185,6 @@ p, .p {
       margin-bottom: 0 !important;
     }
 
-    .small &,
-    .large & {
-      font-size: inherit;
-      line-height: inherit;
-    }
-
     p, li, ul, ol {
       font-size: inherit;
       line-height: inherit;
@@ -209,7 +205,7 @@ p, .p {
   }
 
   ol {
-    list-style: decimal;
+    list-style: decimal outside;
 
     // CSS counter to style numbered list
     list-style: none;
@@ -240,9 +236,14 @@ p, .p {
   p {
     margin-bottom: em($baseline, $small);
   }
+
+  ul, ol {
+    font-size: inherit;
+  }
 }
 
 .prose--small {
+  margin-bottom: em($baseline, $small);
 
   p {
     margin-bottom: em($baseline/2, $small);
@@ -273,9 +274,14 @@ p, .p {
   p {
     margin-bottom: em($baseline, $large);
   }
+
+  ul, ol {
+    font-size: inherit;
+  }
 }
 
 .prose--large {
+  margin-bottom: em($baseline, $large);
 
   ul, ol {
     margin: em($baseline, $large) em($gutter, $large);

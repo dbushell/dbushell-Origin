@@ -717,10 +717,10 @@ button {
      -moz-appearance: none;
           appearance: none;
   outline: none;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -webkit-user-select: text;
+     -moz-user-select: text;
+      -ms-user-select: text;
+          user-select: text;
   text-decoration: none;
   transition: color 100ms ease, border 100ms ease, background 100ms ease;
   width: 100%;
@@ -863,8 +863,12 @@ p, .p {
   p:last-child, .p:last-child {
     margin-bottom: 0 !important; }
   .small p,
-  .large p, .small .p,
-  .large .p {
+  .large p,
+  .prose--small p,
+  .prose--large p, .small .p,
+  .large .p,
+  .prose--small .p,
+  .prose--large .p {
     font-size: inherit; }
   p.small, .p.small {
     margin-bottom: 2.1428571429em; }
@@ -888,11 +892,6 @@ p, .p {
     margin: 1.875em 1.875em; }
     .prose ul:last-child, .prose ol:last-child {
       margin-bottom: 0 !important; }
-    .small .prose ul,
-    .large .prose ul, .small .prose ol,
-    .large .prose ol {
-      font-size: inherit;
-      line-height: inherit; }
     .prose ul p, .prose ul li, .prose ul ul, .prose ul ol, .prose ol p, .prose ol li, .prose ol ul, .prose ol ol {
       font-size: inherit;
       line-height: inherit; }
@@ -904,7 +903,7 @@ p, .p {
   .prose ul {
     list-style: disc outside; }
   .prose ol {
-    list-style: decimal;
+    list-style: decimal outside;
     list-style: none;
     counter-reset: section; }
     .prose ol li:before {
@@ -927,18 +926,22 @@ p, .p {
   .small p,
   .prose--small p {
     margin-bottom: 2.1428571429em; }
+  .small ul, .small ol,
+  .prose--small ul,
+  .prose--small ol {
+    font-size: inherit; }
 
-.prose--small p {
-  margin-bottom: 1.0714285714em; }
-
-.prose--small ul, .prose--small ol {
-  margin: 1.0714285714em 2.1428571429em; }
-  .prose--small ul ul, .prose--small ul ol, .prose--small ol ul, .prose--small ol ol {
-    margin-top: 0.2142857143em;
-    margin-right: 0; }
-
-.prose--small li {
-  margin-bottom: 0.2142857143em; }
+.prose--small {
+  margin-bottom: 2.1428571429em; }
+  .prose--small p {
+    margin-bottom: 1.0714285714em; }
+  .prose--small ul, .prose--small ol {
+    margin: 1.0714285714em 2.1428571429em; }
+    .prose--small ul ul, .prose--small ul ol, .prose--small ol ul, .prose--small ol ol {
+      margin-top: 0.2142857143em;
+      margin-right: 0; }
+  .prose--small li {
+    margin-bottom: 0.2142857143em; }
 
 .large,
 .prose--large {
@@ -949,15 +952,20 @@ p, .p {
   .large p,
   .prose--large p {
     margin-bottom: 1.5em; }
+  .large ul, .large ol,
+  .prose--large ul,
+  .prose--large ol {
+    font-size: inherit; }
 
-.prose--large ul, .prose--large ol {
-  margin: 1.5em 1.5em; }
-  .prose--large ul ul, .prose--large ul ol, .prose--large ol ul, .prose--large ol ol {
-    margin-top: 0.5em;
-    margin-right: 0; }
-
-.prose--large li {
-  margin-bottom: 0.5em; }
+.prose--large {
+  margin-bottom: 1.5em; }
+  .prose--large ul, .prose--large ol {
+    margin: 1.5em 1.5em; }
+    .prose--large ul ul, .prose--large ul ol, .prose--large ol ul, .prose--large ol ol {
+      margin-top: 0.5em;
+      margin-right: 0; }
+  .prose--large li {
+    margin-bottom: 0.5em; }
 
 .text-center {
   text-align: center !important; }
